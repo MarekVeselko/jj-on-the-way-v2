@@ -1,0 +1,54 @@
+<div class="homepage-header"></div>
+<div class="homepage-hello">
+    <div class="col-lg-6 about-me-box">
+        <h1>Ahojte!</h1>
+        <div class="about-me-text">
+            Vitajte na mojom cestovateľskom blogu. Volám sa Janka a môj život ma neustále ťahá rôznymi smermi. Svoju
+            vášeň v cestovaní som objavila už vo svojich tínedžerských rokoch. Od vtedy sa táto vášen neustále prehlbuje
+            a ja som si istá, že môj život je jednoducho spätý so spoznávaním našej prekrásnej planéty.
+        </div>
+        <button [routerLink]="['about-me']" class="read-more-button">
+            Čítaj viac
+        </button>
+    </div>
+    <div class="col-lg-6 about-me-img-box">
+        <img class="about-me-img-box__img" src="assets/images/about-me-photo.png" alt="about-me">
+    </div>
+</div>
+
+<div class="homepage-map">
+    <h1>Miesta, ktoré som navštívila</h1>
+    <div class="map-box">
+        <div *ngFor="let pin of pins">
+            <svg class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
+                <use xlink:href="assets/icons/sprite.svg#icon-location"></use>
+            </svg>
+        </div>
+        <img src="../../assets/images/map.png" alt="map" class="map-img">
+    </div>
+
+</div>
+
+<div class="homepage-articles">
+    <h1>Najnovšie články</h1>
+    <div class="articles">
+        <carousel [cellWidth]="'100%'" [height]="500" [cellsToShow]="screenWidth > 800 ? 2 : 1" [dots]="true"
+            [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'"
+            [objectFit]="'contain'">
+            <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell"
+                [routerLink]="['../blog/detail', article.id]">
+                <img style="height: 300px; object-fit: fill;"
+                    src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="img">
+                <div class="article-box">
+                    <div class="article-title">
+                        <div>{{article.title}}</div>
+                    </div>
+                    <hr>
+                    <div class="article-text">
+                        <p [innerHtml]="truncate(article.perex, 150, '...')"></p>
+                    </div>
+                </div>
+            </div>
+        </carousel>
+    </div>
+</div>

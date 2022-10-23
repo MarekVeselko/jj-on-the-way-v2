@@ -1,0 +1,27 @@
+<app-login-page *ngIf="!userService.isLoggedIn" #loginPage></app-login-page>
+
+<div *ngIf="userService.isLoggedIn" class="admin">
+    <div class="button-box">
+        <button [routerLink]="['new-article']" class="jj-button-big jj-button-success">Nový článok</button>
+    </div>
+    <mat-tab-group (selectedTabChange)="onTabChanged($event);">
+        <mat-tab label="Publikované">
+            <div>
+                <app-articles-table [articles]="articles" (sendToBinArticle)="onArticleSendToBin($event)"
+                    [tabType]="'PUBLISHED'"></app-articles-table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Rozpracované">
+            <div>
+                <app-articles-table [articles]="articles" (sendToBinArticle)="onArticleSendToBin($event)"
+                    [tabType]="'IN_PROGRESS'"></app-articles-table>
+            </div>
+        </mat-tab>
+        <mat-tab label="Kôš">
+            <div>
+                <app-articles-table [articles]="articles" (deleteArticle)="onArticleDelete($event)"
+                    (restoreArticle)="onArticleRestore($event)" [tabType]="'BIN'"></app-articles-table>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

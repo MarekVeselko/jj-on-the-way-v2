@@ -1,0 +1,62 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="jj-form">
+        <div class="jj-form__form-control">
+            <label class="jj-form__label" for="title">Názov *</label>
+            <input type="text" id="title" formControlName="title" class="jj-form__input"
+                [ngClass]="{'jj-form__input--invalid': !controls.title.valid && controls.title.touched}">
+        </div>
+        <div class="jj-form__form-control mar-top-40">
+            <label class="jj-form__label" for="titleImage">URL - Titulná fotka *</label>
+            <input type="text" id="titleImage" formControlName="titleImage" class="jj-form__input"
+                [ngClass]="{'jj-form__input--invalid': !controls.titleImage.valid && controls.titleImage.touched}">
+        </div>
+        <div class="jj-form__form-control mar-top-40">
+            <label class="jj-form__label" for="text">Perex</label>
+            <quill-editor [styles]="{height: '200px'}" formControlName="perex"></quill-editor>
+
+        </div>
+    </div>
+</form>
+
+
+<div class="jj-form mar-top-40">
+    <div class="jj-form__form-control">
+        <div [ngClass]="{'mar-top-80': i > 0}" *ngFor="let textBlock of textBlocks; let i = index">
+            <label class="jj-form__label " for="titleImage">Blok {{i + 1}}</label>
+            <div class="flex-space-between mar-top-40">
+                <quill-editor [styles]="{height: '400px'}" [(ngModel)]="textBlock.text"></quill-editor>
+                <button class="close-btn" style="margin-top: 20px; margin-left: 20px;"
+                    (click)="removeTextBlock(i)">X</button>
+            </div>
+
+            <div class="jj-form__form-control mar-top-40">
+                <label class="jj-form__label" for="titleImage">URL - Obrázok</label>
+                <input type="text" name="img_{{i}}" [(ngModel)]="textBlock.img" class="jj-form__input" />
+            </div>
+        </div>
+    </div>
+    <div class="mar-top-40">
+        <button class="jj-button-big jj-button-special mar-top-40" style="margin-right: 20px;"
+            (click)="addTextBlock()">Pridať blok</button>
+    </div>
+</div>
+
+
+<div class="jj-form">
+    <div class="gallery-box">
+        <div class="jj-form__form-control mar-top-40" style="width: 75%;">
+            <label class="jj-form__label" for="titleImage">Galéria</label>
+            <div *ngFor="let photo of galleryPhotos; let i = index">
+                <div class="flex-space-between">
+                    <input style="width: 80%;" type="text" name="photo_{{i}}" [(ngModel)]="photo.photo"
+                        class="jj-form__input">
+                    <button class="close-btn" style="margin-top: 20px;" (click)="removeLine(i)">X</button>
+                </div>
+            </div>
+        </div>
+        <div class="mar-top-40">
+            <button class="jj-button-big jj-button-special mar-top-40" style="margin-right: 20px;"
+                (click)="addLine()">Pridať riadok</button>
+        </div>
+    </div>
+</div>

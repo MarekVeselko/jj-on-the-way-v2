@@ -1,0 +1,57 @@
+<div class="contact-me">
+    <div *ngIf="!messageSent">
+        <p class="info-text">Ak máš záujem o spoluprácu alebo máš len otázku, či podnet, napíš mi správu: </p>
+        <form [formGroup]="form"  (ngSubmit)="onSubmit()" class="jj-form">
+            <h2>Kontaktný formulár</h2>
+            <div class="row">
+                <div class="jj-form__form-control col-lg-6" style="margin-top: 40px;">
+                    <label class="jj-form__label" for="name">Meno *</label>
+                    <input type="text" id="name" formControlName="name" class="jj-form__input" [ngClass]="{'jj-form__input--invalid': !controls.name.valid && controls.name.touched}">
+                </div>
+        
+                <div class="jj-form__form-control col-lg-6" style="margin-top: 40px;">
+                    <label class="jj-form__label" for="surname">Priezvisko</label>
+                    <input type="text" id="surname" formControlName="surname" class="jj-form__input">
+                </div>
+            </div>
+    
+    
+            <div class="mar-top-40">
+                <label class="jj-form__label" for="contactReason">Kontaktuješ ma pre: *</label>
+                <div class="form-check" style="margin-top: 10px;">
+                    <mat-checkbox #cooperation (change)="onCheckboxChecked('Spolupráca', cooperation.checked)">Spolupráca</mat-checkbox>
+                </div>
+                <div class="form-check">
+                    <mat-checkbox #information (change)="onCheckboxChecked('Informácie k článkom', information.checked)">Informácie k článkom</mat-checkbox>
+                </div>
+                <div class="form-check">
+                    <mat-checkbox #ideas (change)="onCheckboxChecked('Zaujímavé nápady a podnety', ideas.checked)">Zaujímavé nápady a podnety</mat-checkbox>
+                </div>
+                <div class="form-check">
+                    <mat-checkbox #other (change)="onCheckboxChecked('Iné', other.checked)">Iné</mat-checkbox>
+                </div>
+            </div>
+    
+            <div class="jj-form__form-control mar-top-40">
+                <label class="jj-form__label" for="email">E-mail *</label>
+                <input type="email" id="email" formControlName="email" class="jj-form__input" [ngClass]="{'jj-form__input--invalid': !controls.email.valid && controls.email.touched}">
+            </div>
+    
+            <div class="jj-form__form-control mar-top-40">
+                <label class="jj-form__label" for="text">Správa *</label>
+                <textarea type="text" id="text" formControlName="text" cols="50" class="jj-form__input" style="height: 100px;" [ngClass]="{'jj-form__input--invalid': !controls.text.valid && controls.text.touched}"></textarea>
+            </div>
+    
+            <button class="jj-button-big jj-button-success mar-top-40" type="button"  (click)="onSubmit()">Poslať</button>
+        </form>
+    </div>
+    <div *ngIf="messageSent">
+        <div class="email-success">
+            <svg>
+                <use xlink:href="assets/icons/sprite.svg#icon-check-alt"></use>
+            </svg>
+            <p>Správa bola úspešne odoslaná.</p>
+        </div>
+
+    </div>
+</div>

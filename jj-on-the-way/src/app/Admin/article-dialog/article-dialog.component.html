@@ -1,0 +1,21 @@
+<div>
+    <mat-dialog-content>
+        <form [formGroup]="form" class="jj-form login-page-form">
+            <div class="jj-form__form-control mar-top-40">
+                <label class="jj-form__label" for="email">Potvrď PIN-kódom</label>
+                <input type="password" id="pin" formControlName="pin" maxlength="4" style="letter-spacing: 30px; padding: 0 20px;"
+                    class="jj-form__input login-input"
+                    [ngClass]="{'jj-form__input--invalid': !controls.pin.valid && controls.pin.touched}">
+            </div>
+        </form>
+    </mat-dialog-content>
+    <div style="padding-bottom: 40px;">
+        <mat-dialog-actions>
+            <div style="display:flex; justify-content: space-around; width: 100%">
+                <button class="jj-button-small jj-button-info mar-top-40" mat-button mat-dialog-close>Zrušiť</button>
+                <button class="jj-button-small jj-button-success mar-top-40" mat-button [mat-dialog-close]="onSubmit()" cdkFocusInitial>Potvrď</button>
+            </div>
+        </mat-dialog-actions>
+    </div>
+
+</div>

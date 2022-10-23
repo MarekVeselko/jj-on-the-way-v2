@@ -1,0 +1,9 @@
+  <label>Message</label>
+    <input matInput value="Disco party!" #message>
+
+  
+    <label>Dance</label>
+
+    <input matInput value="Dance" #action>
+  
+  <button mat-stroked-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button>

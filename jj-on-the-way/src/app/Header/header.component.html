@@ -1,0 +1,44 @@
+<nav class="nav-bar">
+    <a class="nav-bar__brand">JJ ON THE WAY</a>
+
+    <div class="nav-bar__items">
+        <ul class="nav-bar__items--list">
+            <li [routerLink]="['']" class="nav-bar__items--list--item">
+                <a>Domov</a>
+            </li>
+            <li [routerLink]="['blog']" class="nav-bar__items--list--item">
+                <a>Blog</a>
+            </li>
+            <li [routerLink]="['about-me']" class="nav-bar__items--list--item">
+                <a>O mne</a>
+            </li>
+            <li [routerLink]="['./contact']" class="nav-bar__items--list--item">
+                <a>Kontakt</a>
+            </li>
+        </ul>
+    </div>
+    <div class="nav-bar__hamburger" (click)="mobileMenuVisible = !mobileMenuVisible" >
+        <svg>
+            <use xlink:href="assets/icons/sprite.svg#icon-menu"></use>
+        </svg>
+    </div>
+</nav>
+
+<div class="mobile-menu" [ngClass]="{'mobile-menu-open': mobileMenuVisible}">
+    <div class="mobile-menu__items">
+        <ul class="mobile-menu__items--list">
+            <li [routerLink]="['']" class="mobile-menu__items--list--item">
+                <a>Domov</a>
+            </li>
+            <li [routerLink]="['blog']" class="mobile-menu__items--list--item">
+                <a>Blog</a>
+            </li>
+            <li [routerLink]="['about-me']" class="mobile-menu__items--list--item">
+                <a>O mne</a>
+            </li>
+            <li [routerLink]="['./contact']" class="mobile-menu__items--list--item">
+                <a>Kontakt</a>
+            </li>
+        </ul>
+    </div>
+</div>

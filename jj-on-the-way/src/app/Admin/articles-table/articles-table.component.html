@@ -1,0 +1,40 @@
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="date">
+            <th mat-header-cell *matHeaderCellDef> Dátum </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateCreated | date: 'MMM d, y' }} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Názov </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="button1">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+                <button class="jj-button-small jj-button-warning" *ngIf="tabType !== 'BIN'" [routerLink]="['edit-article', element.id]">Editovať</button>
+                <button (click)="onArticleRestore(element.id)" class="jj-button-small jj-button-special" *ngIf="tabType === 'BIN'">Obnoviť</button>
+            </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="button2">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element"> 
+                <button (click)="onArticleSendToBin(element.id)" class="jj-button-small jj-button-error" *ngIf="tabType !== 'BIN'">Odstrániť</button>
+                <button (click)="onArticleDelete(element.id)" class="jj-button-small jj-button-error" *ngIf="tabType === 'BIN'">Odstrániť natrvalo</button>    
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

@@ -1,0 +1,18 @@
+<div class="edit-article">
+    <button (click)="location.back()" class="jj-back-button">Späť</button>
+    <h1>Editácia článku</h1>
+    <div class="mar-top-40">
+        <app-article-form [editMode]="true"></app-article-form>
+        <div class="button-group">
+            <div class="action-buttons">
+                <button class="jj-button-big jj-button-success mar-top-40" style="margin-right: 20px;"
+                    (click)="onSubmit('PUBLISH')">Publikovať</button>
+                <button class="jj-button-big jj-button-warning mar-top-40" (click)="onSubmit('SAVE')">Uložiť</button>
+            </div>
+            <div style="display: flex;">
+                <button class="jj-button-big jj-button-info mar-top-40" (click)="location.back()">Zrušiť</button>
+            </div>
+
+        </div>
+    </div>
+</div>

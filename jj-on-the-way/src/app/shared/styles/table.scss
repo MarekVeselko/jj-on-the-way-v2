@@ -1,0 +1,35 @@
+@import 'variables';
+
+.mat-table {
+    border: 2px solid $clr-green-primary;
+    border-top: 1px solid $clr-green-primary;
+    .mat-header-row {
+        .mat-header-cell {
+            color: $clr-green-primary;
+            border-color: $clr-green-primary;
+
+        }
+    }
+
+    .mat-row {
+        .mat-cell {
+            border-color: $clr-green-primary;
+            height: 75px;
+            font-family: $font-normal;
+            font-size: 12px;
+            color: #000;
+            font-weight: 600;
+        }
+    }
+}
+
+.mat-paginator-container {
+    color: $clr-green-primary;
+    border-top: none;
+
+    .mat-button-wrapper {
+        svg {
+            fill: $clr-green-primary;
+        }
+    }
+}

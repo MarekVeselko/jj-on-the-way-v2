@@ -1,0 +1,85 @@
+@import '../shared/styles/variables.scss';
+
+.about-me {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 40px 0 0;
+
+    .about-me-box {
+        display: flex;
+        flex-direction: column;
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .about-me-text {
+            font-family: $font-normal;
+            display: inline-block;
+            color: $clr-brown-secondary;
+            font-size: 24px;
+            padding-bottom: 40px;
+        }
+    }
+
+
+    .about-me-img-box {
+        display: flex;
+        justify-content: flex-end;
+
+        &__img {
+            margin-top: 100px;
+            width: 450px;
+            height: 450px;
+            padding: 30px 30px 60px 30px;
+            background-color: #fff;
+            box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
+            -webkit-box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
+            -moz-box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
+        }
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .about-me {
+        .about-me-img-box {
+            &__img {
+                width: 350px;
+                height: 350px;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .about-me {
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+    
+        .about-me-box {
+            display: flex;
+            flex-direction: column;
+    
+            h1 {
+                margin-bottom: 20px;
+            }
+    
+            .about-me-text {
+                font-family: $font-normal;
+                display: inline-block;
+                color: $clr-brown-secondary;
+                font-size: 24px;
+                padding-bottom: 40px;
+            }
+        }
+    
+    
+        .about-me-img-box {
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+}

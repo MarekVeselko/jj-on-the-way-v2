@@ -1,0 +1,14 @@
+<div class="login-page">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="jj-form login-page-form">
+        <h2>Prihlásenie</h2>
+
+        <div class="jj-form__form-control mar-top-40">
+            <label class="jj-form__label" for="email">PIN</label>
+            <input (input)="onInputChange()" type="password" id="pin" formControlName="pin" maxlength="4" class="jj-form__input login-input"
+                [ngClass]="{'jj-form__input--invalid': !loginControls.pin.valid && loginControls.pin.touched}">
+        </div>
+
+
+        <button class="jj-button-big jj-button-success mar-top-40" type="button" (click)="onSubmit()">Prihásiť</button>
+    </form>
+</div>

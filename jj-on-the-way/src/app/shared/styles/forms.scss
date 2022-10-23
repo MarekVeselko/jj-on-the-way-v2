@@ -1,0 +1,32 @@
+@import 'variables';
+
+.jj-form {
+    background-color: #fff;
+    padding: 40px;
+    margin-bottom: 40px;
+
+    &__form-control {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__label {
+        font-family: $font-normal;
+        font-size: 20px;
+    }
+
+    &__input {
+        border: none;
+        border-bottom: 2px solid $clr-green-primary;
+        height: 40px;
+
+        &--invalid {
+            border-bottom: 2px solid $clr-error  !important;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

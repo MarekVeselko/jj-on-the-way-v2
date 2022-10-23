@@ -1,0 +1,10 @@
+.title-photo {
+    width: 100%;
+    height: 50vh;
+    background-image:
+        linear-gradient(105deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)),
+        url(../../../assets/images/front-image.jpg);
+    background-size: cover;
+    background-position: top;
+    position: relative;
+}

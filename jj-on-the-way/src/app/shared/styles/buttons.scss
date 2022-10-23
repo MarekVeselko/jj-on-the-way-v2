@@ -1,0 +1,113 @@
+.read-more-button {
+    background-color: transparent;
+    border: none;
+    font-family: $font-normal;
+    color: $clr-brown-primary;
+    text-decoration: underline;
+    font-size: 20px;
+    cursor: pointer;
+    width: 200px;
+    text-align: left;
+}
+
+.close-btn {
+    border: none;
+    background-color: $clr-error;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-family: $font-normal;
+    font-size: 10px;
+
+    &:hover {
+        background-color: #aa1b1b;
+    }
+}
+
+.jj-button-big {
+    border-radius: 25px;
+    background-color: $clr-green-primary;
+    font-family: $font-normal;
+    font-weight: 600;
+    color: #fff;
+    border: 3px solid #fff;
+    font-size: 15px;
+    padding: 10px 40px;
+}
+
+.jj-button-small {
+    border-radius: 25px;
+    background-color: $clr-green-primary;
+    font-family: $font-normal;
+    font-weight: 600;
+    color: #fff;
+    border: 3px solid #fff;
+    font-size: 10px;
+    padding: 5px 20px;
+}
+
+.jj-button-success {
+    // border-color: #000;
+    background-color: $clr-green-primary;
+
+    &:hover {
+        background-color: #fff;
+        color: $clr-green-primary;
+        border-color: $clr-green-primary;
+    }
+}
+
+.jj-button-warning {
+    background-color: $clr-warning;
+
+    &:hover {
+        background-color: #fff;
+        color: $clr-warning;
+        border-color: $clr-warning;
+    }
+}
+
+.jj-button-error {
+    background-color: $clr-error;
+
+    &:hover {
+        background-color: #fff;
+        color: $clr-error;
+        border-color: $clr-error;
+    }
+}
+
+.jj-button-special {
+    background-color: $clr-special;
+
+    &:hover {
+        background-color: #fff;
+        color: $clr-special;
+        border-color: $clr-special;
+    }
+}
+
+.jj-button-info {
+    background-color: $clr-info;
+
+    &:hover {
+        background-color: #fff;
+        color: $clr-info;
+        border-color: $clr-info;
+    }
+}
+
+.jj-back-button {
+    border: none;
+    font-size: 16px;
+    font-family: $font-normal;
+    color: $clr-green-primary;
+    font-weight: 600;
+    background-color: transparent;
+
+    &::before {
+        content: '<  ';
+    }
+}

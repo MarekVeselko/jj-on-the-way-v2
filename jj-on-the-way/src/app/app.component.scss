@@ -1,0 +1,40 @@
+.main-content {
+    position: relative;
+    min-height: 80vh;
+    padding: 40px 16.5%;
+}
+
+@media only screen and (max-width: 1600px) {
+    .main-content {
+        padding: 40px 16.5%;
+    }
+    
+}
+
+@media only screen and (max-width: 1400px) {
+    .main-content {
+        padding: 40px 14%;
+    }
+    
+}
+
+@media only screen and (max-width: 1200px) {
+    .main-content {
+        padding: 40px 10%;
+    }
+    
+}
+
+@media only screen and (max-width: 800px) {
+    .main-content {
+        padding: 40px 6%;
+    }
+    
+}
+
+@media only screen and (max-width: 600px) {
+    .main-content {
+        padding: 40px 2%;
+    }
+    
+}

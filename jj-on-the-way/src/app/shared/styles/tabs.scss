@@ -1,0 +1,19 @@
+@import 'variables.scss';
+
+.mat-tab-group {
+    .mat-tab-header {
+        .mat-tab-label-container {
+            margin-bottom: 15px;
+            .mat-tab-labels {
+                .mat-tab-label-content{
+                    color: $clr-brown-primary !important;
+
+                }
+            }
+        }
+    }
+
+    .mat-ink-bar {
+        background-color: $clr-brown-primary !important;
+    }
+}

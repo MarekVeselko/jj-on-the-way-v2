@@ -1,0 +1,17 @@
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .gallery-box {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}

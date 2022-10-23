@@ -1,0 +1,16 @@
+.admin {
+    margin-bottom: auto;
+
+    .button-box {
+        display: flex;
+        justify-content: end;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .admin, mat-tab-group {
+        margin-top: 40px;
+    }
+    
+}

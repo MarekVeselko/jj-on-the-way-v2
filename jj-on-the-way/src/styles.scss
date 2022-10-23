@@ -1,1 +1,86 @@
-/* You can add global styles to this file, and also import other style files */
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$jj-on-the-way-primary: mat.define-palette(mat.$indigo-palette);
+$jj-on-the-way-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$jj-on-the-way-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$jj-on-the-way-theme: mat.define-light-theme((color: (primary: $jj-on-the-way-primary,
+        accent: $jj-on-the-way-accent,
+        warn: $jj-on-the-way-warn,
+      )));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($jj-on-the-way-theme);
+
+@import "./app/shared/styles/variables.scss";
+@import "./app/shared/styles/buttons.scss";
+@import "./app/shared/styles/checkbox.scss";
+@import "./app/shared/styles/tabs.scss";
+@import "./app/shared/styles/table.scss";
+@import "./app/shared/styles/forms.scss";
+@import '~ngx-toastr/toastr';
+
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #f2eee4;
+}
+
+
+h1 {
+  font-family: $font-special;
+  color: $clr-brown-primary;
+  font-size: 70px;
+  letter-spacing: 0.04em;
+}
+
+h2 {
+  font-family: $font-normal;
+  color: $clr-green-primary;
+  font-size: 26px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.mar-top-40 {
+  margin-top: 40px;
+}
+
+.mar-top-80 {
+  margin-top: 80px;
+}
+
+input:-internal-autofill-selected {
+  background-color: transparent;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

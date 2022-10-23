@@ -1,0 +1,10 @@
+.mat-checkbox {
+    .mat-checkbox-layout .mat-checkbox-label {
+        font-weight: 600 !important;
+        font-family: $font-normal !important;
+    }
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: $clr-green-primary  !important;
+}
