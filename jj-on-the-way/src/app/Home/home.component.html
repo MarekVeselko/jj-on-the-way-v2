@@ -32,12 +32,12 @@
 <div class="homepage-articles">
     <h1>Najnovšie články</h1>
     <div class="articles">
-        <carousel [cellWidth]="'100%'" [height]="500" [cellsToShow]="screenWidth > 800 ? 2 : 1" [dots]="true"
+        <carousel [cellWidth]="'100%'" [height]="350" [cellsToShow]="screenWidth > 800 ? 2 : 1" [dots]="true"
             [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'"
             [objectFit]="'contain'">
-            <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell"
+            <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell" style="height: 350px; margin-top: 20px"
                 [routerLink]="['../blog/detail', article.id]">
-                <img style="height: 300px; object-fit: fill;"
+                <img style="object-fit: fill; height: 350px;"
                     src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="img">
                 <div class="article-box">
                     <div class="article-title">
@@ -52,3 +52,4 @@
         </carousel>
     </div>
 </div>
+

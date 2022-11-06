@@ -1,222 +1,223 @@
-@import '../shared/styles/variables.scss';
+@import "../shared/styles/variables.scss";
 
 h1 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .homepage-hello {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 40px 0 0;
+
+  .about-me-box {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 40px 0 0;
+    flex-direction: column;
 
-    .about-me-box {
-        display: flex;
-        flex-direction: column;
-
-        h1 {
-            margin-bottom: 20px;
-        }
-
-        .about-me-text {
-            font-family: $font-normal;
-            display: inline-block;
-            color: $clr-brown-secondary;
-            font-size: 24px;
-            padding-bottom: 40px;
-        }
+    h1 {
+      margin-bottom: 20px;
     }
 
-
-    .about-me-img-box {
-        display: flex;
-        justify-content: flex-end;
-
-        &__img {
-            margin-top: 100px;
-            width: 450px;
-            height: 450px;
-            padding: 30px 30px 60px 30px;
-            background-color: #fff;
-            box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
-            -webkit-box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
-            -moz-box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
-        }
+    .about-me-text {
+      font-family: $font-normal;
+      display: inline-block;
+      color: $clr-brown-secondary;
+      font-size: 24px;
+      padding-bottom: 40px;
     }
+  }
+
+  .about-me-img-box {
+    display: flex;
+    justify-content: flex-end;
+
+    &__img {
+      margin-top: 100px;
+      width: 450px;
+      height: 450px;
+      padding: 30px 30px 60px 30px;
+      background-color: #fff;
+      box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
+      -webkit-box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
+      -moz-box-shadow: 2px 1px 10px 5px rgba(0, 0, 0, 0.37);
+    }
+  }
 }
 
 .homepage-map {
-    max-width: 100%;
-    padding: 40px 0 0;
+  max-width: 100%;
+  padding: 40px 0 0;
+  position: relative;
+
+  .map-box {
     position: relative;
 
-    .map-box {
-        position: relative;
-
-        .map-img {
-            width: 100%;
-        }
-
-        .icon-location {
-            position: absolute;
-            width: 2.5%;
-            height: 2.5%;
-            fill: #402E23;
-            -webkit-transition: all 0.2s ease-in;
-            -moz-transition: all 0.2s ease-in;
-            -o-transition: all 0.2s ease-in;
-            transition: all 0.2s ease-in;
-
-            &:hover {
-                transform: scale(1.5);
-                cursor: pointer;
-            }
-        }
+    .map-img {
+      width: 100%;
     }
 
+    .icon-location {
+      position: absolute;
+      width: 2.5%;
+      height: 2.5%;
+      fill: #402e23;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+
+      &:hover {
+        transform: scale(1.5);
+        cursor: pointer;
+      }
+    }
+  }
 }
 
 .homepage-articles {
-    max-width: 100%;
-    padding: 40px 0 0;
+  max-width: 100%;
+  padding: 40px 0 0;
 
-    .articles {
-        .custom-carousel-cell {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
+  .articles {
+    .custom-carousel-cell {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
 
-            &:hover img {
-                filter: blur(3px) brightness(80%);
-            }
+      &:hover img {
+        filter: blur(3px) brightness(80%);
+      }
 
-            .article-box {
-                color: #fff;
-                font-family: $font-normal;
-                opacity: 0;
-                visibility: hidden;
-                width: 80%;
-                position: relative;
-                left: 50px;
+      .article-box {
+        color: #fff;
+        font-family: $font-normal;
+        opacity: 0;
+        visibility: hidden;
+        width: 80%;
+        position: relative;
+        left: 50px;
 
-                .article-title {
-                    text-align: center;
-                    font-size: 16px;
-                    font-weight: 600;
-                }
-
-                hr {
-                    border: none;
-                    border-bottom: 2px solid #fff;
-                }
-            }
-
-            &:hover .article-box {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(-150px);
-                transition: all .4s;
-            }
+        .article-title {
+          text-align: center;
+          font-size: 16px;
+          font-weight: 600;
         }
-    }
 
+        hr {
+          border: none;
+          border-bottom: 2px solid #fff;
+        }
+      }
+
+      &:hover .article-box {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-150px);
+        transition: all 0.4s;
+      }
+    }
+  }
 }
 
 .carousel-arrow {
-    margin-top: -80px !important;
+  margin-top: -80px !important;
 }
 
 @media only screen and (max-width: 1200px) {
-    .homepage-hello {
-        .about-me-img-box {
-            &__img {
-                width: 350px;
-                height: 350px;
-            }
-        }
+  .homepage-hello {
+    .about-me-img-box {
+      &__img {
+        width: 350px;
+        height: 350px;
+      }
     }
+  }
 
-    .articles {
-        .custom-carousel-cell {
-            .article-box {
-                color: #000 !important;
-                font-family: $font-normal;
-                opacity: 1 !important;
-                visibility: visible !important;
-                width: 80%;
-                position: relative;
-                margin-top: 20px;
-                margin-left: -20px;
-            }
-        }
+  .articles {
+    .custom-carousel-cell {
+      &:hover img {
+        filter: none !important;
+      }
+      .article-box {
+        color: #000 !important;
+        font-family: $font-normal;
+        opacity: 1 !important;
+        visibility: visible !important;
+        width: 80%;
+        position: relative;
+        margin-top: 20px;
+        margin-left: -20px;
+      }
+
+      &:hover .article-box {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0px) !important;
+        transition: none;
+      }
     }
+  }
 
-    .homepage-map {
-        margin-top: 40px;
-    }
-
+  .homepage-map {
+    margin-top: 40px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
-    .homepage-hello {
-        display: flex;
-        justify-content: flex-start;
-        flex-direction: column;
+  .homepage-hello {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
 
-        .about-me-box {
-            display: flex;
-            flex-direction: column;
+    .about-me-box {
+      display: flex;
+      flex-direction: column;
 
-            h1 {
-                margin-bottom: 20px;
-            }
+      h1 {
+        margin-bottom: 20px;
+      }
 
-            .about-me-text {
-                font-family: $font-normal;
-                display: inline-block;
-                color: $clr-brown-secondary;
-                font-size: 24px;
-                padding-bottom: 40px;
-            }
-        }
-
-
-        .about-me-img-box {
-            margin-top: 40px;
-            display: flex;
-            justify-content: flex-start;
-        }
+      .about-me-text {
+        font-family: $font-normal;
+        display: inline-block;
+        color: $clr-brown-secondary;
+        font-size: 18px;
+        // padding-bottom: 40px;
+      }
     }
 
+    .about-me-img-box {
+      margin-top: 40px;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
 }
 
-
 @media only screen and (max-width: 600px) {
-    .homepage-hello {
-        .about-me-img-box {
-            margin-top: 200px;
-        }
+  .homepage-hello {
+    .about-me-img-box {
+      // margin-top: 200px;
     }
+  }
 
-    .homepage-map {
-        margin-top: 200px;
-    }
+  .homepage-map {
+    // margin-top: 200px;
+  }
 
-    .homepage-articles {
-        margin-top: 50px;
-    }
-
+  .homepage-articles {
+    // margin-top: 50px;
+  }
 }
 
 @media only screen and (max-width: 400px) {
-    .homepage-hello {
-        .about-me-img-box {
-            margin-top: 400px;
-        }
+  .homepage-hello {
+    .about-me-img-box {
+      // margin-top: 400px;
     }
+  }
 
-    .homepage-map {
-        margin-top: 400px;
-    }
-
+  .homepage-map {
+    // margin-top: 400px;
+  }
 }

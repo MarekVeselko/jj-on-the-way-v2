@@ -1,30 +1,212 @@
 <div class="blog">
-    <h1> Články </h1>
-    <div class="jj-form__form-control mar-top-40">
-        <label class="jj-form__label" for="search">Vyhľadávanie</label>
-        <input (input)="getItems(searchInput.value)" type="text" id="search" style="background-color: transparent;" #searchInput class="jj-form__input">
+  <h1> Články </h1>
+  <div class="search-bar">
+    <div class="jj-form__form-control">
+      <label class="jj-form__label" for="search">
+        <svg>
+          <use xlink:href="assets/icons/sprite.svg#icon-search"></use>
+        </svg>
+      </label>
+      <input (input)="getItems(searchInput.value)" type="text" id="search" style="background-color: transparent;"
+        #searchInput class="jj-form__input">
     </div>
-    <div *ngFor="let article of articles | async;">
-            <div class="article-preview">
-                <div class="img-box">
-                <img *ngIf="article?.titleImage" src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
-                </div>
-                <div class="content-box">
-                    <div class="text-box">
-                        <h2>{{article.title}}</h2>
-                        <div class="date-box">
-                            <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
-                            <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                        </div>
+  </div>
 
-                        <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
-                    </div>
-                    <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
-                </div>
-
+  <mat-tab-group (selectedTabChange)="onTabChange($event)" class="blog-tabs mar-top-40" style="padding-bottom: 20px;">
+    <mat-tab label="Všetky">
+      <div *ngIf="dataLength > 0">
+        <div *ngFor="let article of articles | async;">
+          <div class="article-preview">
+            <div class="img-box">
+              <img *ngIf="article?.titleImage"
+                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
             </div>
-    </div>
+            <div class="content-box">
+              <div class="text-box">
+                <h2>{{article.title}}</h2>
+                <div class="date-box">
+                  <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
+                  <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
+                </div>
+
+                <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+              </div>
+              <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
+        V tejto sekcií sa nenachádzajú žiadne články.
+      </div>
+
+      <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
+        Žiadne články nezodpovedajú hľadanému výrazu.
+      </div>
+    </mat-tab>
+    <mat-tab label="Európa">
+      <div>
+        <div *ngFor="let article of articles | async;">
+          <div class="article-preview">
+            <div class="img-box">
+              <img *ngIf="article?.titleImage"
+                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
+            </div>
+            <div class="content-box">
+              <div class="text-box">
+                <h2>{{article.title}}</h2>
+                <div class="date-box">
+                  <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
+                  <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
+                </div>
+
+                <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+              </div>
+              <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
+          V tejto sekcií sa nenachádzajú žiadne články.
+        </div>
+
+        <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
+          Žiadne články nezodpovedajú hľadanému výrazu.
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Ázia">
+      <div>
+        <div *ngFor="let article of articles | async;">
+          <div class="article-preview">
+            <div class="img-box">
+              <img *ngIf="article?.titleImage"
+                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
+            </div>
+            <div class="content-box">
+              <div class="text-box">
+                <h2>{{article.title}}</h2>
+                <div class="date-box">
+                  <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
+                  <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
+                </div>
+
+                <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+              </div>
+              <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+            </div>
+
+          </div>
+        </div>
+        <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
+          V tejto sekcií sa nenachádzajú žiadne články.
+        </div>
+
+        <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
+          Žiadne články nezodpovedajú hľadanému výrazu.
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Afrika">
+      <div>
+        <div *ngFor="let article of articles | async;">
+          <div class="article-preview">
+            <div class="img-box">
+              <img *ngIf="article?.titleImage"
+                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
+            </div>
+            <div class="content-box">
+              <div class="text-box">
+                <h2>{{article.title}}</h2>
+                <div class="date-box">
+                  <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
+                  <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
+                </div>
+
+                <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+              </div>
+              <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
+        V tejto sekcií sa nenachádzajú žiadne články.
+      </div>
+
+      <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
+        Žiadne články nezodpovedajú hľadanému výrazu.
+      </div>
+    </mat-tab>
+    <mat-tab label="Severná Amerika">
+      <div>
+        <div *ngFor="let article of articles | async;">
+          <div class="article-preview">
+            <div class="img-box">
+              <img *ngIf="article?.titleImage"
+                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
+            </div>
+            <div class="content-box">
+              <div class="text-box">
+                <h2>{{article.title}}</h2>
+                <div class="date-box">
+                  <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
+                  <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
+                </div>
+
+                <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+              </div>
+              <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
+        V tejto sekcií sa nenachádzajú žiadne články.
+      </div>
+
+      <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
+        Žiadne články nezodpovedajú hľadanému výrazu.
+      </div>
+    </mat-tab>
+    <mat-tab label="Južná Amerika">
+      <div>
+        <div *ngFor="let article of articles | async;">
+          <div class="article-preview">
+            <div class="img-box">
+              <img *ngIf="article?.titleImage"
+                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
+            </div>
+            <div class="content-box">
+              <div class="text-box">
+                <h2>{{article.title}}</h2>
+                <div class="date-box">
+                  <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
+                  <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
+                </div>
+
+                <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+              </div>
+              <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
+        V tejto sekcií sa nenachádzajú žiadne články.
+      </div>
+
+      <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
+        Žiadne články nezodpovedajú hľadanému výrazu.
+      </div>
+    </mat-tab>
+    </mat-tab-group>
     <mat-paginator class="blog-paginator" #paginator [length]="dataSource.data.length" [pageSize]="5"
-        [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
+      [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons>
     </mat-paginator>
 </div>

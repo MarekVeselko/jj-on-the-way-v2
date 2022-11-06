@@ -17,20 +17,33 @@ const router = Router();
 // ));
 
 
-router.get("/all/:articleType/:searchedText?", expressAsyncHandler(
+router.get("/all/:articleType/:sectionType/:searchedText?", expressAsyncHandler(
     async (req, res) => {
         const articleType = req.params.articleType;
         const searchRegex = new RegExp(req.params.searchedText, 'i');
+        const sectionType = req.params.sectionType;
         // const articles = await ArticleModel.find();
         let foundArticles;
         if (articleType === 'PUBLISHED') {
-            foundArticles = await ArticleModel.find({published: true, isDeleted: false, title: { $regex: searchRegex }});
+            if (!sectionType || sectionType === 'ALL') {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, title: { $regex: searchRegex } });
+            } else if (sectionType === 'EUROPE') {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'europe', title: { $regex: searchRegex } });
+            } else if (sectionType === 'ASIA') {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'asia', title: { $regex: searchRegex } });
+            } else if (sectionType === 'AFRICA') {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'africa', title: { $regex: searchRegex } });
+            } else if (sectionType === 'NORTHAMERICA') {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'northAmerica', title: { $regex: searchRegex } });
+            } else if (sectionType === 'SOUTHAMERICA') {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'southAmerica', title: { $regex: searchRegex } });
+            }
         } else if (articleType === 'SAVED') {
-            foundArticles = await ArticleModel.find({published: false, isDeleted: false, title: { $regex: searchRegex }});
+            foundArticles = await ArticleModel.find({ published: false, isDeleted: false, title: { $regex: searchRegex } });
         } else if (articleType === 'DELETED') {
-            foundArticles = await ArticleModel.find({isDeleted: true, title: { $regex: searchRegex }});
+            foundArticles = await ArticleModel.find({ isDeleted: true, title: { $regex: searchRegex } });
         } else if (articleType == null) {
-            foundArticles = await ArticleModel.find({title: { $regex: searchRegex }});
+            foundArticles = await ArticleModel.find({ title: { $regex: searchRegex } });
         }
         res.send(foundArticles);
     }
@@ -62,22 +75,22 @@ router.post('/create', expressAsyncHandler(
         await newArticle.save();
         res.send(newArticle);
     }
-    ));
+));
 
-    router.put('/edit', expressAsyncHandler(
-        async (req, res) => {
-            const foundArticle = await ArticleModel.findByIdAndUpdate(req.body.id, req.body);
-            res.send(foundArticle);
-        }
-    ));
+router.put('/edit', expressAsyncHandler(
+    async (req, res) => {
+        const foundArticle = await ArticleModel.findByIdAndUpdate(req.body.id, req.body);
+        res.send(foundArticle);
+    }
+));
 
-    router.delete('/delete/:id', expressAsyncHandler(
-        async (req, res) => {
-            const body = req.body;
-            const foundArticle = await ArticleModel.findByIdAndRemove(req.params.id);
-            res.send(foundArticle);
-        }
-    ));
+router.delete('/delete/:id', expressAsyncHandler(
+    async (req, res) => {
+        const body = req.body;
+        const foundArticle = await ArticleModel.findByIdAndRemove(req.params.id);
+        res.send(foundArticle);
+    }
+));
 
 
 export default router;

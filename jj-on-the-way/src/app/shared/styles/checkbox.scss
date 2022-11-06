@@ -8,3 +8,15 @@
 .mat-checkbox-checked.mat-accent .mat-checkbox-background {
     background-color: $clr-green-primary  !important;
 }
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: $clr-green-primary  !important;
+}
+
+.mat-radio-inner-circle {
+  background-color: $clr-green-primary  !important;
+}
+
+.mat-radio-label-content {
+  font-family: $font-normal !important;
+}

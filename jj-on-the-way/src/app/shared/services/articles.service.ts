@@ -12,10 +12,11 @@ export class ArticlesService {
 
   constructor(private http: HttpClient) { }
 
-  getArticles(articleType: string, searchedText?: string | null): Observable<Article[]> {
+  getArticles(articleType: string, sectionType?: string | null, searchedText?: string | null): Observable<Article[]> {
     let url;
-    if (searchedText) url = articleType + '/' + searchedText;
-    else url = articleType;
+    const section = sectionType ? sectionType : 'ALL';
+    if (searchedText) url = articleType + '/' + section + '/' + searchedText;
+    else url = articleType + '/' + section;
       return this.http.get<Article[]>(GET_ARTICLES_URL + url);
   }
 

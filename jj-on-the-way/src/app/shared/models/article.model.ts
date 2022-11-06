@@ -7,6 +7,7 @@ export class Article {
         public id: string,
         public perex: string,
         public gallery: string[],
+        public section: string,
         public isDeleted: boolean,
         public published: boolean
     ) { }

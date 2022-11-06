@@ -7,6 +7,7 @@ export interface Article {
     titleImage: string,
     gallery: Array<string>,
     dateCreated: Date,
+    section: string,
     id: string,
     isDeleted: boolean,
     published: boolean
@@ -18,6 +19,7 @@ export const ArticleSchema = new Schema<Article>({
     perex: { type: String },
     text: [{ type: Object }],
     titleImage: { type: String, required: false },
+    section: {type: String, required: true },
     gallery: [{ type: String, required: false }],
     dateCreated: { type: Date, required: true },
     isDeleted: { type: Boolean, required: true },

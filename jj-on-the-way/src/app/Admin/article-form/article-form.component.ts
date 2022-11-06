@@ -27,6 +27,7 @@ export class ArticleFormComponent implements OnInit {
     readonly controls = {
         title: new FormControl('', Validators.required),
         titleImage: new FormControl('', Validators.required),
+        section: new FormControl('europe', Validators.required),
         text: new FormControl([{}]),
         perex: new FormControl(''),
         gallery: new FormControl([''])
@@ -49,7 +50,7 @@ export class ArticleFormComponent implements OnInit {
                     this.controls.text.patchValue(this.article.text);
                     this.controls.titleImage.patchValue(this.article.titleImage);
                     this.controls.perex.patchValue(this.article.perex);
-
+                    this.controls.section.patchValue(this.article.section);
                     if (this.article.gallery.length > 0) {
                         this.galleryPhotos = [];
                         this.article.gallery.forEach(gp => {

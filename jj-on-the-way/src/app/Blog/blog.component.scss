@@ -1,6 +1,28 @@
 @import '../shared/styles/variables.scss';
 
 .blog {
+  .search-bar {
+    display: flex;
+    justify-content: flex-end;
+
+    .jj-form__form-control {
+      width: 35%;
+      flex-direction: row;
+      justify-content: flex-start;
+
+      input {
+        width: 100%;
+      }
+
+      label svg{
+        width: 18px;
+        height: 18px;
+        margin-top: 10px;
+        margin-right: 10px;
+      }
+    }
+  }
+
     .article-preview {
         margin-top: 80px;
         height: 350px;
@@ -66,12 +88,17 @@
 
     }
 
+    .no-articles {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
     .blog-paginator {
         background-color: transparent;
         margin-top: 40px;
     }
 }
-
 
 @media only screen and (max-width: 800px) {
     .blog {

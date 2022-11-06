@@ -13,7 +13,9 @@ import { Observable } from 'rxjs';
 })
 export class BlogComponent implements OnInit, AfterViewInit {
   articles!: Observable<any>;
+  dataLength: number = 0;
   dataSource = new MatTableDataSource<Article>();
+  sectionType: string | null = null;
   @ViewChild('paginator') paginator!: MatPaginator;
   paginatorIndex = 0;
 
@@ -25,9 +27,21 @@ export class BlogComponent implements OnInit, AfterViewInit {
   }
 
   getItems(searchedText?: string) {
-    this.articleService.getArticles('PUBLISHED', searchedText).subscribe(response => {
+    this.articleService.getArticles('PUBLISHED', this.sectionType, searchedText).subscribe(response => {
       this.dataSource.data = response;
+      this.dataLength = this.dataSource.data.length
     })
+  }
+
+  onTabChange (event: any) {
+    if (event.index == 0) this.sectionType = null;
+    if (event.index == 1) this.sectionType = 'EUROPE';
+    if (event.index == 2) this.sectionType = 'ASIA';
+    if (event.index == 3) this.sectionType = 'AFRICA';
+    if (event.index == 4) this.sectionType = 'NORTHAMERICA';
+    if (event.index == 5) this.sectionType = 'SOUTHAMERICA';
+    this.getItems();
+    this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {

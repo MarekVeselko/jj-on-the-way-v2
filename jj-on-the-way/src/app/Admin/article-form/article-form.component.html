@@ -6,6 +6,16 @@
                 [ngClass]="{'jj-form__input--invalid': !controls.title.valid && controls.title.touched}">
         </div>
         <div class="jj-form__form-control mar-top-40">
+          <label class="jj-form__label" for="title">Sekcia *</label>
+          <mat-radio-group formControlName="section" class="jj-form__radio-group mar-top-40" aria-label="Select an option">
+            <mat-radio-button [value]="'europe'">Európa</mat-radio-button>
+            <mat-radio-button [value]="'asia'">Ázia</mat-radio-button>
+            <mat-radio-button [value]="'africa'">Afrika</mat-radio-button>
+            <mat-radio-button [value]="'northAmerica'">Severná Amerika</mat-radio-button>
+            <mat-radio-button [value]="'southAmerica'">Južná Amerika</mat-radio-button>
+          </mat-radio-group>
+      </div>
+        <div class="jj-form__form-control mar-top-40">
             <label class="jj-form__label" for="titleImage">URL - Titulná fotka *</label>
             <input type="text" id="titleImage" formControlName="titleImage" class="jj-form__input"
                 [ngClass]="{'jj-form__input--invalid': !controls.titleImage.valid && controls.titleImage.touched}">

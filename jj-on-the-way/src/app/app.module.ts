@@ -34,6 +34,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { ArticleDialogComponent } from './Admin/article-dialog/article-dialog.component';
 import { SnackBarComponent } from './shared/parts/snack-bar/snack-bar.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatRadioModule} from '@angular/material/radio';
 import {IvyCarouselModule} from 'angular-responsive-carousel';
 import { EmailService } from './shared/services/email.service';
 import { ToastrModule } from 'ngx-toastr';
@@ -75,11 +76,12 @@ import { ImageDialogComponent } from './Blog/blog-detail/image-dialog/image-dial
     MatDialogModule,
     MatPaginatorModule,
     MatTabsModule,
+    MatRadioModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    QuillModule.forRoot(), 
+    QuillModule.forRoot(),
     ToastrModule.forRoot()
   ],
   providers: [ArticlesService, EmailService, UserService, LoadingService, {

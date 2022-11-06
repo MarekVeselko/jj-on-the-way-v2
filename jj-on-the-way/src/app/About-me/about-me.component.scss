@@ -58,25 +58,25 @@
         display: flex;
         justify-content: flex-start;
         flex-direction: column;
-    
+
         .about-me-box {
             display: flex;
             flex-direction: column;
-    
+
             h1 {
                 margin-bottom: 20px;
             }
-    
+
             .about-me-text {
                 font-family: $font-normal;
                 display: inline-block;
                 color: $clr-brown-secondary;
-                font-size: 24px;
+                font-size: 18px;
                 padding-bottom: 40px;
             }
         }
-    
-    
+
+
         .about-me-img-box {
             display: flex;
             justify-content: flex-start;
