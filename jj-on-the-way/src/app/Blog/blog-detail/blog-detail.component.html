@@ -1,27 +1,29 @@
 <div class="blog-detail">
-    <button (click)="location.back()" class="jj-back-button">Späť</button>
-    <h1>{{article.title}}</h1>
-    <div class="perex mar-top-80">
-        <img class='title-photo' *ngIf="article?.titleImage"
-            src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt='img' />
-        <!-- <pre class="pre-element">{{article.perex}}</pre> -->
-        <p class="pre-element perex__text" [innerHtml]="article.perex"></p>
+  <button (click)="location.back()" class="jj-back-button">Späť</button>
+  <h1>{{article.title}}</h1>
+  <div class="perex mar-top-80">
+    <img class='title-photo' *ngIf="article?.titleImage"
+      src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt='img' />
+    <!-- <pre class="pre-element">{{article.perex}}</pre> -->
+    <p class="pre-element perex__text" [innerHtml]="article.perex"></p>
+  </div>
+
+  <div *ngFor="let text of article?.text; let i = index;" class="text-block mar-top-80">
+    <img class="img-left" *ngIf="(text.img && text.img !== '') && i%2 !=0 "
+      src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(text.img) }}" alt="photo">
+    <p class="pre-element" *ngIf="text.text && text.text !== ''" [innerHtml]="text.text"></p>
+    <img class="img-right" *ngIf="(text.img && text.img !== '') && i%2 == 0"
+      src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(text.img) }}" alt="photo">
+  </div>
+
+
+
+  <div *ngIf="showGallery" class="gallery mar-top-80">
+    <div class="gallery__item" *ngFor="let photo of article?.gallery; let i = index">
+      <img (click)="openModal(photo)" class="gallery__item--photo" *ngIf="photo"
+        src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(photo) }}" alt='fadas' />
     </div>
-
-    <div *ngFor="let text of article?.text" class="text-block mar-top-80">
-        <p class="pre-element mar-top-40" *ngIf="text.text && text.text !== ''" [innerHtml]="text.text"></p>
-        <img *ngIf="text.img && text.img !== ''"
-            src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(text.img) }}" alt="photo">
-    </div>
-
-
-
-    <div *ngIf="showGallery" class="gallery mar-top-80">
-        <div class="gallery__item" *ngFor="let photo of article?.gallery; let i = index">
-            <img (click)="openModal(photo)" class="gallery__item--photo" *ngIf="photo"
-                src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(photo) }}" alt='fadas' />
-        </div>
-    </div>
+  </div>
 
 
 </div>

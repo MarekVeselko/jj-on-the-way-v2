@@ -26,24 +26,24 @@ router.get("/all/:articleType/:sectionType/:searchedText?", expressAsyncHandler(
         let foundArticles;
         if (articleType === 'PUBLISHED') {
             if (!sectionType || sectionType === 'ALL') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, title: { $regex: searchRegex } });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             } else if (sectionType === 'EUROPE') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'europe', title: { $regex: searchRegex } });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'europe', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             } else if (sectionType === 'ASIA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'asia', title: { $regex: searchRegex } });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'asia', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             } else if (sectionType === 'AFRICA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'africa', title: { $regex: searchRegex } });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'africa', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             } else if (sectionType === 'NORTHAMERICA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'northAmerica', title: { $regex: searchRegex } });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'northAmerica', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             } else if (sectionType === 'SOUTHAMERICA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'southAmerica', title: { $regex: searchRegex } });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'southAmerica', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             }
         } else if (articleType === 'SAVED') {
-            foundArticles = await ArticleModel.find({ published: false, isDeleted: false, title: { $regex: searchRegex } });
+            foundArticles = await ArticleModel.find({ published: false, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
         } else if (articleType === 'DELETED') {
-            foundArticles = await ArticleModel.find({ isDeleted: true, title: { $regex: searchRegex } });
+            foundArticles = await ArticleModel.find({ isDeleted: true, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
         } else if (articleType == null) {
-            foundArticles = await ArticleModel.find({ title: { $regex: searchRegex } });
+            foundArticles = await ArticleModel.find({ title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
         }
         res.send(foundArticles);
     }

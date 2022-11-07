@@ -35,9 +35,9 @@
         <carousel [cellWidth]="'100%'" [height]="350" [cellsToShow]="screenWidth > 800 ? 2 : 1" [dots]="true"
             [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'"
             [objectFit]="'contain'">
-            <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell" style="height: 350px; margin-top: 20px"
+            <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell" style="height: 350px; margin-top: 20px; min-height: 350px; max-height: 350px; overflow: hidden;"
                 [routerLink]="['../blog/detail', article.id]">
-                <img style="object-fit: fill; height: 350px;"
+                <img style="object-fit: fill; min-height: 350px; max-height: 350px;"
                     src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="img">
                 <div class="article-box">
                     <div class="article-title">
