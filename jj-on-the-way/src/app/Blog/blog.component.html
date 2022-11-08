@@ -23,7 +23,7 @@
             </div>
             <div class="content-box">
               <div class="text-box">
-                <h2>{{article.title}}</h2>
+                <h2 [routerLink]="['detail', article.id]" style="cursor: pointer;">{{article.title}}</h2>
                 <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
