@@ -85,7 +85,7 @@ h1 {
       flex-direction: column;
 
       &:hover img {
-        filter: blur(3px) brightness(80%);
+        filter: blur(4px) brightness(80%);
       }
 
       .article-box {
@@ -95,7 +95,7 @@ h1 {
         visibility: hidden;
         width: 80%;
         position: relative;
-        left: 50px;
+        left: 40px;
 
         .article-title {
           text-align: center;
@@ -112,7 +112,7 @@ h1 {
       &:hover .article-box {
         opacity: 1;
         visibility: visible;
-        transform: translateY(-150px);
+        transform: translateY(-200px);
         transition: all 0.4s;
       }
     }
@@ -122,6 +122,39 @@ h1 {
 .carousel-arrow {
   margin-top: -80px !important;
 }
+
+
+.instagram {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 25px 20px;
+    position: relative;
+
+    span {
+      font-size: 22px;
+      color: #fff;
+    }
+    &--icon{
+      align-self: center;
+      position: absolute;
+      transform: translateY(-50%);
+      top: 50%;
+      right: 20px;
+      width: 24px;
+      height: 24px;
+
+      svg {
+        width: 24px;
+        height: 24px;
+        fill: #fff;
+      }
+
+    }
+  }
+}
+
 
 @media only screen and (max-width: 1200px) {
   .homepage-hello {
