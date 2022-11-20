@@ -11,3 +11,6 @@ export const EDIT_ARTICLE_URL = BASE_URL + 'api/articles/edit';
 export const LOGIN_URL = BASE_URL + 'api/users/login';
 
 export const SEND_EMAIL_URL = BASE_URL + 'api/email/sendmail'
+
+export const GET_MAP_URL = BASE_URL + 'api/map'
+export const SET_MAP_URL = BASE_URL + 'api/map/edit-map'

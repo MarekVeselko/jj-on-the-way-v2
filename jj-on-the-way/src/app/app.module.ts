@@ -40,6 +40,7 @@ import { EmailService } from './shared/services/email.service';
 import { ToastrModule } from 'ngx-toastr';
 import { QuillModule } from 'ngx-quill';
 import { ImageDialogComponent } from './Blog/blog-detail/image-dialog/image-dialog.component';
+import { EditMapComponent } from './Admin/edit-map/edit-map.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ImageDialogComponent } from './Blog/blog-detail/image-dialog/image-dial
     BlogComponent,
     BlogDetailComponent,
     ImageDialogComponent,
+    EditMapComponent,
     ContactComponent,
     AboutMeComponent,
     ArticlesTableComponent,

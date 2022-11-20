@@ -7,6 +7,7 @@ import cors from "cors";
 import articleRouter from './routers/articles.router';
 import userRouter from './routers/user.router';
 import emailRouter from  './routers/email.router';
+import mapRouter from './routers/map.routes';
 import { dbConnect } from './configs/database.configs';
 dbConnect();
 
@@ -21,6 +22,7 @@ app.use(cors({
 app.use("/api/articles", articleRouter);
 app.use("/api/users", userRouter);
 app.use("/api/email", emailRouter);
+app.use("/api/map", mapRouter);
 
 app.use(express.static('./public'));
 app.get('*', (req,res) => {

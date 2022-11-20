@@ -1,0 +1,27 @@
+<div class="edit-map">
+  <button (click)="location.back()" class="jj-back-button">Späť</button>
+
+  <div class="map-box">
+    <div *ngFor="let pin of pins">
+      <svg (click)="markPin(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x" [ngClass]="{'fill-red': checkNewPin(pin.x,pin.y)}">
+        <use xlink:href="assets/icons/sprite.svg#icon-location"></use>
+      </svg>
+    </div>
+    <img (click)="onMapClick($event)" src="../../assets/images/map.png" alt="map" class="map-img" #image>
+  </div>
+
+  <div class="mar-top-40">
+    <div *ngIf="!addMode && !deleteMode" class="space-between">
+      <button class="jj-button-big jj-button-success" (click)="addMode = true">Pridať pinku</button>
+      <button class="jj-button-big jj-button-error" (click)="deleteMode = true">Vymazať pinku</button>
+    </div>
+
+
+    <div *ngIf="addMode || deleteMode" class="space-between">
+      <button (click)="setMap()" class="jj-button-big" [ngClass]="{'jj-button-success': addMode, 'jj-button-error': deleteMode}">Potvrdiť</button>
+      <button (click)="deleteLast()" [disabled]="newPins.length < 1" *ngIf="addMode" class="jj-button-big jj-button-error" >Vymazať poslednú</button>
+      <button (click)="cancel()" class="jj-button-big jj-button-info">Zrušiť</button>
+    </div>
+  </div>
+
+</div>

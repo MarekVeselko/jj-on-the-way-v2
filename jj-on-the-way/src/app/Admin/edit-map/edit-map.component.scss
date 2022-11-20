@@ -1,0 +1,38 @@
+.edit-map {
+  max-width: 100%;
+  padding: 40px 0 0;
+  position: relative;
+
+  .map-box {
+    position: relative;
+
+    .map-img {
+      width: 100%;
+    }
+
+    .icon-location {
+      position: absolute;
+      width: 2.5%;
+      height: 2.5%;
+      fill: #402e23;
+      -webkit-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in;
+
+      &:hover {
+        transform: scale(1.5);
+        cursor: pointer;
+      }
+    }
+
+    .fill-red {
+      fill: red !important;
+    }
+  }
+
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+  }
+}
