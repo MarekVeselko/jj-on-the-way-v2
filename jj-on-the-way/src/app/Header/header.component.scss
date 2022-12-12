@@ -39,11 +39,12 @@
         padding: 0 10px;
         text-align: center;
         line-height: 60px;
+        font-family: 'Open Sans', sans-serif;
         font-size: 16px;
+        text-transform: uppercase;
         cursor: pointer;
         font-weight: 800;
         width: 150px;
-        font-family: $font-normal;
 
         a {
           position: relative;
@@ -209,6 +210,7 @@
   .mobile-menu-open {
     width: 100% !important;
   }
+
   .mobile-menu {
     &__items {
       &--list {
