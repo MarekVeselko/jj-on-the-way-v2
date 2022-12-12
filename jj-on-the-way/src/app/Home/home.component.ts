@@ -10,7 +10,7 @@ import { MapService } from '../shared/services/map.service';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   articles!: Article[];
   public screenWidth!: number;
   script: any;
@@ -40,6 +40,14 @@ export class HomeComponent implements OnInit {
     this.mapService.getMap().subscribe(response => {
       this.pins = response[0].pins;
     })
+  }
+
+  ngOnDestroy(): void {
+    this.renderer2.removeChild(this.document.body, this.script);
+    this.renderer2.removeChild(this.document.body, this.document.getElementById('EmbedSocialHashtagScript'));
+    this.renderer2.removeChild(this.document.body, this.document.getElementById('EmbedSocialNewPopup'));
+    this.renderer2.removeChild(this.document.body, this.document.getElementById('EmbedSocialIFrame'));
+
   }
 
   getImageId(url: string) {
