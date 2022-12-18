@@ -35,11 +35,11 @@ export class BlogComponent implements OnInit, AfterViewInit {
 
   onTabChange (event: any) {
     if (event.index == 0) this.sectionType = null;
-    if (event.index == 1) this.sectionType = 'EUROPE';
-    if (event.index == 2) this.sectionType = 'ASIA';
-    if (event.index == 3) this.sectionType = 'AFRICA';
-    if (event.index == 4) this.sectionType = 'NORTHAMERICA';
-    if (event.index == 5) this.sectionType = 'SOUTHAMERICA';
+    if (event.index == 1) this.sectionType = 'europe';
+    if (event.index == 2) this.sectionType = 'asia';
+    if (event.index == 3) this.sectionType = 'africa';
+    if (event.index == 4) this.sectionType = 'northAmerica';
+    if (event.index == 5) this.sectionType = 'southAmerica';
     this.getItems();
     this.cdr.markForCheck();
   }

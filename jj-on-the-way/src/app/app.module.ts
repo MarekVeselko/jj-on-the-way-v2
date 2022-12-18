@@ -30,12 +30,12 @@ import { LoadingService } from './shared/services/loading.service';
 import { LoadingComponent } from './shared/parts/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { BlogDetailComponent } from './Blog/blog-detail/blog-detail.component';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { ArticleDialogComponent } from './Admin/article-dialog/article-dialog.component';
 import { SnackBarComponent } from './shared/parts/snack-bar/snack-bar.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatRadioModule} from '@angular/material/radio';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatRadioModule } from '@angular/material/radio';
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 import { EmailService } from './shared/services/email.service';
 import { ToastrModule } from 'ngx-toastr';
 import { QuillModule } from 'ngx-quill';
@@ -91,10 +91,10 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
             ['blockquote', 'code-block'],
 
-            [{ 'header': 1 }, { 'header': 2 }, {'header': 3}],               // custom button values
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+            [{ 'header': 1 }, { 'header': 2 }, { 'header': 3 }],               // custom button values
+            [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+            [{ 'script': 'sub' }, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1' }, { 'indent': '+1' }],          // outdent/indent
             [{ 'direction': 'rtl' }],                         // text direction
 
             [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
@@ -109,7 +109,7 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
           ]
         }
       }
-    }),    ToastrModule.forRoot()
+    }), ToastrModule.forRoot()
   ],
   providers: [ArticlesService, EmailService, UserService, LoadingService, {
     provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true

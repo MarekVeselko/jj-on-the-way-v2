@@ -1,15 +1,18 @@
 <div class="blog">
-  <h1> Články </h1>
-  <div class="search-bar">
-    <div class="jj-form__form-control">
-      <label class="jj-form__label" for="search">
-        <svg>
-          <use xlink:href="assets/icons/sprite.svg#icon-search"></use>
-        </svg>
-      </label>
-      <input (input)="getItems(searchInput.value)" type="text" id="search" style="background-color: transparent;"
-        #searchInput class="jj-form__input">
-    </div>
+  <div class="blog-top">
+    <h1> Články </h1>
+    <div class="search-bar">
+      <div class="jj-form__form-control">
+        <label class="jj-form__label" for="search">
+          <svg>
+            <use xlink:href="assets/icons/sprite.svg#icon-search"></use>
+          </svg>
+        </label>
+        <input (input)="getItems(searchInput.value)" type="text" id="search" style="background-color: transparent;"
+          #searchInput class="jj-form__input">
+      </div>
+  </div>
+
   </div>
 
   <mat-tab-group (selectedTabChange)="onTabChange($event)" class="blog-tabs mar-top-40" style="padding-bottom: 20px;">

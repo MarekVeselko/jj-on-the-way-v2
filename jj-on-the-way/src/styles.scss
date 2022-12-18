@@ -47,11 +47,27 @@ body {
   background-color: #f2eee4;
 }
 
+.ql-font-serif {
+  font-family: serif !important;
+}
+
+.ql-font-monospace {
+  font-family: monospace !important;
+}
+
+.ql-font-sans-serif {
+  font-family: sans-serif !important;
+}
+
+.ql-font-arial {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
 
 h1 {
   font-family: $font-special;
   color: $clr-brown-primary;
-  font-size: 70px;
+  font-size: 60px;
   letter-spacing: 0.04em;
 }
 
@@ -84,3 +100,22 @@ body {
   margin: 0;
 }
 
+@media only screen and (max-width: 1400px) {
+  h1 {
+    font-size: 55px;
+  }
+}
+
+
+@media only screen and (max-width: 1000px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    text-align: center;
+  }
+}

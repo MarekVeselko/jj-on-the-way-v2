@@ -25,18 +25,10 @@ router.get("/all/:articleType/:sectionType/:searchedText?", expressAsyncHandler(
         // const articles = await ArticleModel.find();
         let foundArticles;
         if (articleType === 'PUBLISHED') {
-            if (!sectionType || sectionType === 'ALL') {
+            if (!sectionType || sectionType === 'all') {
                 foundArticles = await ArticleModel.find({ published: true, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
-            } else if (sectionType === 'EUROPE') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'europe', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
-            } else if (sectionType === 'ASIA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'asia', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
-            } else if (sectionType === 'AFRICA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'africa', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
-            } else if (sectionType === 'NORTHAMERICA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'northAmerica', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
-            } else if (sectionType === 'SOUTHAMERICA') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: 'southAmerica', title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
+            } else {
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: sectionType, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             }
         } else if (articleType === 'SAVED') {
             foundArticles = await ArticleModel.find({ published: false, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });

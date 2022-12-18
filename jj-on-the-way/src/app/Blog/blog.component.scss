@@ -1,27 +1,35 @@
 @import '../shared/styles/variables.scss';
 
 .blog {
-  .search-bar {
-    display: flex;
-    justify-content: flex-end;
 
-    .jj-form__form-control {
-      width: 35%;
-      flex-direction: row;
-      justify-content: flex-start;
+    .blog-top {
+        display: flex;
+        justify-content: space-between;
+        .search-bar {
+            display: flex;
+            justify-content: flex-end;
+            width: 45%;
+            align-self: center;
 
-      input {
-        width: 100%;
-      }
+            .jj-form__form-control {
+              width: 100%;
+              flex-direction: row;
+              justify-content: flex-start;
 
-      label svg{
-        width: 18px;
-        height: 18px;
-        margin-top: 10px;
-        margin-right: 10px;
-      }
+              input {
+                width: 100%;
+              }
+
+              label svg{
+                width: 18px;
+                height: 18px;
+                margin-top: 10px;
+                margin-right: 10px;
+              }
+            }
+          }
     }
-  }
+
 
     .article-preview {
         margin-top: 80px;
@@ -103,7 +111,17 @@
 
 @media only screen and (max-width: 800px) {
     .blog {
+        .blog-top {
+            flex-direction: column;
+
+            .search-bar {
+                align-self: flex-start;
+                width: 75%;
+                margin-top: 40px;
+            }
+        }
         .article-preview {
+            align-self: center;
             flex-direction: column;
             height: auto;
             .img-box {

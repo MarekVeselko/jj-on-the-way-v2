@@ -14,7 +14,7 @@ export class ArticlesService {
 
   getArticles(articleType: string, sectionType?: string | null, searchedText?: string | null): Observable<Article[]> {
     let url;
-    const section = sectionType ? sectionType : 'ALL';
+    const section = sectionType ? sectionType : 'all';
     if (searchedText) url = articleType + '/' + section + '/' + searchedText;
     else url = articleType + '/' + section;
       return this.http.get<Article[]>(GET_ARTICLES_URL + url);

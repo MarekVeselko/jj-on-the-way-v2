@@ -5,6 +5,10 @@
         .mat-tab-label-container {
             margin-bottom: 15px;
             .mat-tab-labels {
+                justify-content: space-between;
+                .mat-tab-label {
+                min-width: 100px !important;
+                }
                 .mat-tab-label-content{
                     color: $clr-brown-primary !important;
 
