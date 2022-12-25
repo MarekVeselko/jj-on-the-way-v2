@@ -18,7 +18,7 @@
   <mat-tab-group (selectedTabChange)="onTabChange($event)" class="blog-tabs mar-top-40" style="padding-bottom: 20px;">
     <mat-tab label="Všetky">
       <div *ngIf="dataLength > 0">
-        <div *ngFor="let article of articles | async;">
+        <div class="all-ariticles" *ngFor="let article of articles | async;">
           <div class="article-preview">
             <div class="img-box">
               <img *ngIf="article?.titleImage"
@@ -27,10 +27,10 @@
             <div class="content-box">
               <div class="text-box">
                 <h2 [routerLink]="['detail', article.id]" style="cursor: pointer; font-size: 22px;">{{article.title}}</h2>
-                <div class="date-box">
+                <!-- <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                </div>
+                </div> -->
 
                 <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
               </div>
@@ -59,10 +59,10 @@
             <div class="content-box">
               <div class="text-box">
                 <h2>{{article.title}}</h2>
-                <div class="date-box">
+                <!-- <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                </div>
+                </div> -->
 
                 <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
               </div>
@@ -91,10 +91,10 @@
             <div class="content-box">
               <div class="text-box">
                 <h2>{{article.title}}</h2>
-                <div class="date-box">
+                <!-- <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                </div>
+                </div> -->
 
                 <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
               </div>
@@ -123,10 +123,10 @@
             <div class="content-box">
               <div class="text-box">
                 <h2>{{article.title}}</h2>
-                <div class="date-box">
+                <!-- <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                </div>
+                </div> -->
 
                 <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
               </div>
@@ -155,10 +155,10 @@
             <div class="content-box">
               <div class="text-box">
                 <h2>{{article.title}}</h2>
-                <div class="date-box">
+                <!-- <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                </div>
+                </div> -->
 
                 <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
               </div>
@@ -187,10 +187,10 @@
             <div class="content-box">
               <div class="text-box">
                 <h2>{{article.title}}</h2>
-                <div class="date-box">
+                <!-- <div class="date-box">
                   <p class="date-box-month">{{article.dateCreated | date: 'MMMM'}}</p>
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
-                </div>
+                </div> -->
 
                 <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
               </div>

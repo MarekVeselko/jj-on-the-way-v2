@@ -27,16 +27,16 @@
 <div class="mobile-menu" [ngClass]="{'mobile-menu-open': mobileMenuVisible}">
     <div class="mobile-menu__items">
         <ul class="mobile-menu__items--list">
-            <li [routerLink]="['']" class="mobile-menu__items--list--item">
+            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['']" class="mobile-menu__items--list--item">
                 <a>Domov</a>
             </li>
-            <li [routerLink]="['blog']" class="mobile-menu__items--list--item">
+            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['blog']" class="mobile-menu__items--list--item">
                 <a>Blog</a>
             </li>
-            <li [routerLink]="['about-me']" class="mobile-menu__items--list--item">
+            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['about-me']" class="mobile-menu__items--list--item">
                 <a>O mne</a>
             </li>
-            <li [routerLink]="['./contact']" class="mobile-menu__items--list--item">
+            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['./contact']" class="mobile-menu__items--list--item">
                 <a>Kontakt</a>
             </li>
         </ul>

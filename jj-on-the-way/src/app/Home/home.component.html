@@ -1,7 +1,7 @@
 <div class="homepage-header"></div>
 <div class="homepage-hello">
   <div class="col-lg-6 about-me-box">
-    <h1>Ahojte!</h1>
+    <h1 style="padding: 0; margin-bottom: 20px;">Ahojte!</h1>
     <div class="about-me-text">
       Vitajte na mojom cestovateľskom blogu. Volám sa Janka a môj život ma neustále ťahá rôznymi smermi. Svoju
       vášeň v cestovaní som objavila už vo svojich tínedžerských rokoch. Od vtedy sa táto vášen neustále prehlbuje
@@ -32,7 +32,7 @@
 <div class="homepage-articles">
   <h1>Najnovšie články</h1>
   <div class="articles">
-    <carousel [cellWidth]="'100%'" [height]="screenWidth > 1200 ? 350 : 650" [cellsToShow]="screenWidth > 800 ? 3 : 1" [dots]="true"
+    <carousel [cellWidth]="'100%'" [height]="screenWidth > 1200 ? 350 : 650" [cellsToShow]="articlesPerPage" [dots]="true"
       [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'" [objectFit]="'contain'">
       <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell"
         [routerLink]="['../blog/detail', article.id]">

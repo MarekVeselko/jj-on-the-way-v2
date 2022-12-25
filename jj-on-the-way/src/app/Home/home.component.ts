@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public screenWidth!: number;
   script: any;
   pins!: { x: string, y: string }[];
+  articlesPerPage = 3;
 
   constructor(private articleService: ArticlesService,
     private mapService: MapService,
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
-
+    this.getNumberOfArticlesPerPage();
     this.script = this.renderer2.createElement('script');
     this.script.text = '(function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript"));';
     this.renderer2.appendChild(this.document.body, this.script);
@@ -62,5 +63,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
     this.screenWidth = window.innerWidth;
+    this.getNumberOfArticlesPerPage();
+  }
+
+  private getNumberOfArticlesPerPage(): void {
+    if (this.screenWidth > 1000) this.articlesPerPage = 3;
+    if (this.screenWidth > 500 && this.screenWidth <= 1000) this.articlesPerPage = 2;
+    if (this.screenWidth < 500) this.articlesPerPage = 1;
   }
 }

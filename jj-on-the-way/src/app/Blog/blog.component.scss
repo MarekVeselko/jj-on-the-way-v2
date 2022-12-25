@@ -30,17 +30,25 @@
           }
     }
 
+    .all-aricles {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
 
     .article-preview {
         margin-top: 80px;
         height: 350px;
         display: flex;
+        justify-content: space-between;
         padding: 40px;
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
         position: relative;
 
         .img-box {
             width: 40%;
+            max-width: 400px;
             margin-right: 40px;
 
             img {
@@ -54,38 +62,38 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            width: 40%;
+            width: 60%;
             height: 100%;
 
             .text-box {
                 display: flex;
                 flex-direction: column;
 
-                .date-box {
-                    position: absolute;
-                    top: 50px;
-                    right: 3%;
-                    border-radius: 10px;
-                    width: 100px;
+                // .date-box {
+                //     position: absolute;
+                //     top: 50px;
+                //     right: 3%;
+                //     border-radius: 10px;
+                //     width: 100px;
 
-                    &-month {
-                        font-size: 15px;
-                        text-align: center;
-                        color: #116f60;
-                        margin: 0;
-                        line-height: 0px;
-                    }
+                //     &-month {
+                //         font-size: 15px;
+                //         text-align: center;
+                //         color: #116f60;
+                //         margin: 0;
+                //         line-height: 0px;
+                //     }
 
-                    &-day {
-                        font-size: 30px;
-                        font-weight: 600;
-                        color: $clr-green-primary;
-                        padding: 5px 15px;
-                        text-align: center;
-                    }
+                //     &-day {
+                //         font-size: 30px;
+                //         font-weight: 600;
+                //         color: $clr-green-primary;
+                //         padding: 5px 15px;
+                //         text-align: center;
+                //     }
 
 
-                }
+                // }
 
 
                 .preview-text {
@@ -114,10 +122,14 @@
         .blog-top {
             flex-direction: column;
 
+            h1 {
+              align-self: center;
+            }
+
             .search-bar {
-                align-self: flex-start;
+                align-self: center;
                 width: 75%;
-                margin-top: 40px;
+                margin-top: 20px;
             }
         }
         .article-preview {
