@@ -170,11 +170,13 @@ h1 {
         width: 80%;
         position: relative;
         margin-top: 20px;
-        margin-left: -20px;
+        display: flex;
+        flex-direction: column;
       }
 
       .article-title__text {
         height: 75px;
+        color: $clr-green-primary;
       }
 
       &:hover .article-box {
