@@ -1,0 +1,49 @@
+@import 'variables';
+
+.jj-select {
+  height: 60px;
+
+  .p-dropdown {
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid $clr-green-primary;
+    border-radius: 0;
+    background-color: transparent;
+    height: 50px;
+
+    .p-dropdown-label {
+      font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .p-dropdown-item {
+      font-family: $font-normal;
+      font-size: 14px;
+      padding: 1.25rem 1rem;
+    }
+
+    .p-dropdown-trigger {
+      height: 105%;
+    }
+
+    .p-dropdown-clear-icon {
+      display: none;
+    }
+
+    .p-dropdown-item.p-highlight {
+      color: $clr-green-primary;
+      background: transparent;
+
+    }
+  }
+
+  .p-dropdown:not(.p-disabled).p-focus {
+    border-color: $clr-green-primary;
+    box-shadow: none;
+  }
+  .p-dropdown:not(.p-disabled):hover {
+    border-color: $clr-green-primary;
+  }
+}

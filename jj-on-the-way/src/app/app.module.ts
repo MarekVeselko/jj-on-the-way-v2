@@ -31,6 +31,7 @@ import { LoadingComponent } from './shared/parts/loading/loading.component';
 import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { BlogDetailComponent } from './Blog/blog-detail/blog-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DropdownModule } from 'primeng/dropdown';
 import { ArticleDialogComponent } from './Admin/article-dialog/article-dialog.component';
 import { SnackBarComponent } from './shared/parts/snack-bar/snack-bar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -79,6 +80,7 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
     MatPaginatorModule,
     MatTabsModule,
     MatRadioModule,
+    DropdownModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,

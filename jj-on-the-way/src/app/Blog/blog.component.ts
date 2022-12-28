@@ -4,6 +4,12 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Article } from '../shared/models/article.model';
 import { ArticlesService } from '../shared/services/articles.service';
 import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
+
+interface Section {
+  name: string,
+  value: string
+}
 
 @Component({
   selector: 'app-blog',
@@ -15,33 +21,35 @@ export class BlogComponent implements OnInit, AfterViewInit {
   articles!: Observable<any>;
   dataLength: number = 0;
   dataSource = new MatTableDataSource<Article>();
-  sectionType: string | null = null;
+  sectionType: Section | null = null;
   @ViewChild('paginator') paginator!: MatPaginator;
   paginatorIndex = 0;
+  sections: Section[];
+  timeout: any = null;
+
 
   constructor(private articleService: ArticlesService,
-              private cdr: ChangeDetectorRef) { }
+    private cdr: ChangeDetectorRef) {
+    this.sections = [
+      { name: 'Všetky', value: 'all' },
+      { name: 'Všeobecné', value: 'general' },
+      { name: 'Európa', value: 'europe' },
+      { name: 'Ázia', value: 'asia' },
+      { name: 'Afrika', value: 'africa' },
+      { name: 'Severná Amerika', value: 'northAmerica' },
+      { name: 'Južná Amerika', value: 'southAmerica' },
+    ]
+  }
 
   ngOnInit(): void {
     this.getItems();
   }
 
   getItems(searchedText?: string) {
-    this.articleService.getArticles('PUBLISHED', this.sectionType, searchedText).subscribe(response => {
+    this.articleService.getArticles('PUBLISHED', this.sectionType?.value, searchedText).subscribe(response => {
       this.dataSource.data = response;
       this.dataLength = this.dataSource.data.length
     })
-  }
-
-  onTabChange (event: any) {
-    if (event.index == 0) this.sectionType = null;
-    if (event.index == 1) this.sectionType = 'europe';
-    if (event.index == 2) this.sectionType = 'asia';
-    if (event.index == 3) this.sectionType = 'africa';
-    if (event.index == 4) this.sectionType = 'northAmerica';
-    if (event.index == 5) this.sectionType = 'southAmerica';
-    this.getItems();
-    this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {
@@ -53,6 +61,13 @@ export class BlogComponent implements OnInit, AfterViewInit {
 
   getImageId(imageUrl: string) {
     return this.articleService.getImageId(imageUrl);
+  }
+
+  search(searchedText?: string) {
+    clearTimeout(this.timeout);
+    this.timeout = setTimeout(()=>{
+      this.getItems(searchedText);
+    }, 500);
   }
 
 
