@@ -17,7 +17,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { HttpClient } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArticlesTableComponent } from './Admin/articles-table/articles-table.component';
 import { ArticlesService } from './shared/services/articles.service';
@@ -32,6 +32,7 @@ import { LoadingInterceptor } from './shared/interceptors/loading.interceptor';
 import { BlogDetailComponent } from './Blog/blog-detail/blog-detail.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DropdownModule } from 'primeng/dropdown';
+import { MatSelectModule } from '@angular/material/select';
 import { ArticleDialogComponent } from './Admin/article-dialog/article-dialog.component';
 import { SnackBarComponent } from './shared/parts/snack-bar/snack-bar.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -42,6 +43,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { QuillModule } from 'ngx-quill';
 import { ImageDialogComponent } from './Blog/blog-detail/image-dialog/image-dialog.component';
 import { EditMapComponent } from './Admin/edit-map/edit-map.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 
 @NgModule({
@@ -76,6 +79,7 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
     MatTableModule,
     MatSnackBarModule,
     IvyCarouselModule,
+    MatSelectModule,
     MatDialogModule,
     MatPaginatorModule,
     MatTabsModule,
@@ -85,6 +89,13 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      }
+    }),
     QuillModule.forRoot({
       modules: {
         toolbar: {
@@ -119,3 +130,6 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}

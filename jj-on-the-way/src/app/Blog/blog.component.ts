@@ -5,6 +5,7 @@ import { Article } from '../shared/models/article.model';
 import { ArticlesService } from '../shared/services/articles.service';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
 
 interface Section {
   name: string,
@@ -21,7 +22,7 @@ export class BlogComponent implements OnInit, AfterViewInit {
   articles!: Observable<any>;
   dataLength: number = 0;
   dataSource = new MatTableDataSource<Article>();
-  sectionType: Section | null = null;
+  sectionType!: string;
   @ViewChild('paginator') paginator!: MatPaginator;
   paginatorIndex = 0;
   sections: Section[];
@@ -29,15 +30,16 @@ export class BlogComponent implements OnInit, AfterViewInit {
 
 
   constructor(private articleService: ArticlesService,
+    private translate: TranslateService,
     private cdr: ChangeDetectorRef) {
     this.sections = [
-      { name: 'Všetky', value: 'all' },
-      { name: 'Všeobecné', value: 'general' },
-      { name: 'Európa', value: 'europe' },
-      { name: 'Ázia', value: 'asia' },
-      { name: 'Afrika', value: 'africa' },
-      { name: 'Severná Amerika', value: 'northAmerica' },
-      { name: 'Južná Amerika', value: 'southAmerica' },
+      { name: 'jj.all', value: 'all' },
+      { name: 'jj.general', value: 'general' },
+      { name: 'jj.europe', value: 'europe' },
+      { name: 'jj.asia', value: 'asia' },
+      { name: 'jj.africa', value: 'africa' },
+      { name: 'jj.northAmerica', value: 'northAmerica' },
+      { name: 'jj.southAmerica', value: 'southAmerica' },
     ]
   }
 
@@ -46,7 +48,7 @@ export class BlogComponent implements OnInit, AfterViewInit {
   }
 
   getItems(searchedText?: string) {
-    this.articleService.getArticles('PUBLISHED', this.sectionType?.value, searchedText).subscribe(response => {
+    this.articleService.getArticles('PUBLISHED', this.sectionType, searchedText).subscribe(response => {
       this.dataSource.data = response;
       this.dataLength = this.dataSource.data.length
     })

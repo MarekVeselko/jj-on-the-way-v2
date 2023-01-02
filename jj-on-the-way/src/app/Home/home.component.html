@@ -1,14 +1,12 @@
 <div class="homepage-header"></div>
 <div class="homepage-hello">
   <div class="col-lg-6 about-me-box">
-    <h1 style="padding: 0; margin-bottom: 20px;">Ahojte!</h1>
+    <h1 style="padding: 0; margin-bottom: 20px;">{{'jj.hello' | translate }}</h1>
     <div class="about-me-text">
-      Vitajte na mojom cestovateľskom blogu. Volám sa Janka a môj život ma neustále ťahá rôznymi smermi. Svoju
-      vášeň v cestovaní som objavila už vo svojich tínedžerských rokoch. Od vtedy sa táto vášen neustále prehlbuje
-      a ja som si istá, že môj život je jednoducho spätý so spoznávaním našej prekrásnej planéty.
+      {{'jj.aboutMeTextShort' | translate }}
     </div>
     <button [routerLink]="['about-me']" class="read-more-button">
-      Čítaj viac
+      {{'jj.readMore' | translate }}
     </button>
   </div>
   <div class="col-lg-6 about-me-img-box">
@@ -17,7 +15,7 @@
 </div>
 
 <div class="homepage-map">
-  <h1>Miesta, ktoré som navštívila</h1>
+  <h1>{{'jj.places' | translate }}</h1>
   <div class="map-box">
     <div *ngFor="let pin of pins">
       <svg class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
@@ -30,7 +28,7 @@
 </div>
 
 <div class="homepage-articles">
-  <h1>Najnovšie články</h1>
+  <h1>{{'jj.newestArticles' | translate }}</h1>
   <div class="articles">
     <carousel [cellWidth]="'100%'" [height]="screenWidth > 1200 ? 350 : 650" [cellsToShow]="articlesPerPage" [dots]="true"
       [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'" [objectFit]="'contain'">
@@ -53,7 +51,7 @@
 </div>
 
 <div class="instagram">
-  <h1>Môj instagram</h1>
+  <h1>{{'jj.myInstagram' | translate }}</h1>
   <div class="embedsocial-hashtag" data-ref="343c5fe4ce457ea71760f56e0384d9d6a7cb40ce"> <a
       class="feed-powered-by-es feed-powered-by-es-feed-new" href="https://embedsocial.com/social-media-aggregator/"
       target="_blank" title="Widget by EmbedSocial"> Widget by EmbedSocial<span>→</span> </a> </div>

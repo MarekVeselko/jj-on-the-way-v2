@@ -1,44 +1,61 @@
 <nav class="nav-bar">
-    <a class="nav-bar__brand">JJ ON THE WAY</a>
+  <a class="nav-bar__brand">JJ ON THE WAY</a>
+  <div class="nav-bar__items">
+    <ul class="nav-bar__items--list">
+      <li [routerLink]="['']" class="nav-bar__items--list--item">
+        <a>{{ 'jj.home' | translate }}</a>
+      </li>
+      <li [routerLink]="['blog']" class="nav-bar__items--list--item">
+        <a>{{ 'jj.blog' | translate }}</a>
+      </li>
+      <li [routerLink]="['about-me']" class="nav-bar__items--list--item">
+        <a>{{ 'jj.aboutMe' | translate }}</a>
+      </li>
+      <li [routerLink]="['./contact']" class="nav-bar__items--list--item">
+        <a>{{ 'jj.contact' | translate }}</a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="nav-bar__items">
-        <ul class="nav-bar__items--list">
-            <li [routerLink]="['']" class="nav-bar__items--list--item">
-                <a>Domov</a>
-            </li>
-            <li [routerLink]="['blog']" class="nav-bar__items--list--item">
-                <a>Blog</a>
-            </li>
-            <li [routerLink]="['about-me']" class="nav-bar__items--list--item">
-                <a>O mne</a>
-            </li>
-            <li [routerLink]="['./contact']" class="nav-bar__items--list--item">
-                <a>Kontakt</a>
-            </li>
-        </ul>
-    </div>
-    <div class="nav-bar__hamburger" (click)="mobileMenuVisible = !mobileMenuVisible" >
-        <svg>
-            <use xlink:href="assets/icons/sprite.svg#icon-menu"></use>
-        </svg>
-    </div>
+  <div class="language-selector">
+    <img class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="language.value === 'sk'" src="../../assets/icons/slovakia.png" alt="sk">
+    <img class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="language.value === 'en'" src="../../assets/icons/united-kingdom.png" alt="en">
+
+    <p-dropdown (onChange)="onLangChange()" #lang [options]="langOptions" [(ngModel)]="language" optionLabel="name"
+      [showClear]="true">
+      <ng-template let-country pTemplate="item">
+        <div>
+          <img style="width: 40px; height: 40px;" [src]="country.imgSrc" />
+        </div>
+      </ng-template>
+    </p-dropdown>
+  </div>
+
+  <div class="nav-bar__hamburger" (click)="mobileMenuVisible = !mobileMenuVisible">
+    <svg>
+      <use xlink:href="assets/icons/sprite.svg#icon-menu"></use>
+    </svg>
+  </div>
 </nav>
 
 <div class="mobile-menu" [ngClass]="{'mobile-menu-open': mobileMenuVisible}">
-    <div class="mobile-menu__items">
-        <ul class="mobile-menu__items--list">
-            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['']" class="mobile-menu__items--list--item">
-                <a>Domov</a>
-            </li>
-            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['blog']" class="mobile-menu__items--list--item">
-                <a>Blog</a>
-            </li>
-            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['about-me']" class="mobile-menu__items--list--item">
-                <a>O mne</a>
-            </li>
-            <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['./contact']" class="mobile-menu__items--list--item">
-                <a>Kontakt</a>
-            </li>
-        </ul>
-    </div>
+  <div class="mobile-menu__items">
+    <ul class="mobile-menu__items--list">
+      <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['']" class="mobile-menu__items--list--item">
+        <a>Domov</a>
+      </li>
+      <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['blog']"
+        class="mobile-menu__items--list--item">
+        <a>Blog</a>
+      </li>
+      <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['about-me']"
+        class="mobile-menu__items--list--item">
+        <a>O mne</a>
+      </li>
+      <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['./contact']"
+        class="mobile-menu__items--list--item">
+        <a>Kontakt</a>
+      </li>
+    </ul>
+  </div>
 </div>

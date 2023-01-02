@@ -1,48 +1,48 @@
 <div class="contact-me">
     <div *ngIf="!messageSent">
-        <p class="info-text">Ak máš záujem o spoluprácu alebo máš len otázku, či podnet, napíš mi správu: </p>
+        <p class="info-text">{{ 'jj.contactMeText' | translate }} </p>
         <form [formGroup]="form"  (ngSubmit)="onSubmit()" class="jj-form">
-            <h2>Kontaktný formulár</h2>
+            <h2>{{ 'jj.contactForm' | translate }}</h2>
             <div class="row">
                 <div class="jj-form__form-control col-lg-6" style="margin-top: 40px;">
-                    <label class="jj-form__label" for="name">Meno *</label>
+                    <label class="jj-form__label" for="name">{{ 'jj.name' | translate }}</label>
                     <input type="text" id="name" formControlName="name" class="jj-form__input" [ngClass]="{'jj-form__input--invalid': !controls.name.valid && controls.name.touched}">
                 </div>
-        
+
                 <div class="jj-form__form-control col-lg-6" style="margin-top: 40px;">
-                    <label class="jj-form__label" for="surname">Priezvisko</label>
+                    <label class="jj-form__label" for="surname">{{ 'jj.surname' | translate }}</label>
                     <input type="text" id="surname" formControlName="surname" class="jj-form__input">
                 </div>
             </div>
-    
-    
+
+
             <div class="mar-top-40">
-                <label class="jj-form__label" for="contactReason">Kontaktuješ ma pre: *</label>
+                <label class="jj-form__label" for="contactReason">{{ 'jj.contactReason' | translate }}</label>
                 <div class="form-check" style="margin-top: 10px;">
-                    <mat-checkbox #cooperation (change)="onCheckboxChecked('Spolupráca', cooperation.checked)">Spolupráca</mat-checkbox>
+                    <mat-checkbox #cooperation (change)="onCheckboxChecked('Spolupráca', cooperation.checked)">{{ 'jj.collaboration' | translate }}</mat-checkbox>
                 </div>
                 <div class="form-check">
-                    <mat-checkbox #information (change)="onCheckboxChecked('Informácie k článkom', information.checked)">Informácie k článkom</mat-checkbox>
+                    <mat-checkbox #information (change)="onCheckboxChecked('Informácie k článkom', information.checked)">{{ 'jj.informations' | translate }}</mat-checkbox>
                 </div>
                 <div class="form-check">
-                    <mat-checkbox #ideas (change)="onCheckboxChecked('Zaujímavé nápady a podnety', ideas.checked)">Zaujímavé nápady a podnety</mat-checkbox>
+                    <mat-checkbox #ideas (change)="onCheckboxChecked('Zaujímavé nápady a podnety', ideas.checked)">{{ 'jj.ideas' | translate }}</mat-checkbox>
                 </div>
                 <div class="form-check">
-                    <mat-checkbox #other (change)="onCheckboxChecked('Iné', other.checked)">Iné</mat-checkbox>
+                    <mat-checkbox #other (change)="onCheckboxChecked('Iné', other.checked)">{{ 'jj.other' | translate }}</mat-checkbox>
                 </div>
             </div>
-    
+
             <div class="jj-form__form-control mar-top-40">
-                <label class="jj-form__label" for="email">E-mail *</label>
+                <label class="jj-form__label" for="email">{{ 'jj.email' | translate }}</label>
                 <input type="email" id="email" formControlName="email" class="jj-form__input" [ngClass]="{'jj-form__input--invalid': !controls.email.valid && controls.email.touched}">
             </div>
-    
+
             <div class="jj-form__form-control mar-top-40">
-                <label class="jj-form__label" for="text">Správa *</label>
+                <label class="jj-form__label" for="text">{{ 'jj.message' | translate }}</label>
                 <textarea type="text" id="text" formControlName="text" cols="50" class="jj-form__input" style="height: 100px;" [ngClass]="{'jj-form__input--invalid': !controls.text.valid && controls.text.touched}"></textarea>
             </div>
-    
-            <button class="jj-button-big jj-button-success mar-top-40" type="button"  (click)="onSubmit()">Poslať</button>
+
+            <button class="jj-button-big jj-button-success mar-top-40" type="button"  (click)="onSubmit()">{{ 'jj.send' | translate }}</button>
         </form>
     </div>
     <div *ngIf="messageSent">
@@ -50,7 +50,7 @@
             <svg>
                 <use xlink:href="assets/icons/sprite.svg#icon-check-alt"></use>
             </svg>
-            <p>Správa bola úspešne odoslaná.</p>
+            <p>{{'jj.messageSuccess' | translate}}</p>
         </div>
 
     </div>

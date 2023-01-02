@@ -1,8 +1,16 @@
 <div class="blog">
-  <h1> Články </h1>
+  <h1> {{'jj.articles' | translate}} </h1>
   <div class="blog-top">
-    <div class="jj-select" >
-      <p-dropdown (onChange)="getItems(searchInput.value)" [options]="sections" placeholder="Sekcia" [(ngModel)]="sectionType" optionLabel="name" [showClear]="true"></p-dropdown>
+    <div class="jj-select">
+      <p-dropdown (onChange)="getItems(searchInput.value)" [options]="sections"
+        placeholder="{{'jj.section' | translate}}" [(ngModel)]="sectionType" [showClear]="true">
+        <ng-template pTemplate="item" let-item>
+          {{item.name | translate}}
+        </ng-template>
+        <ng-template let-selectedItem pTemplate="selectedItem">
+          {{selectedItem.name | translate}}
+        </ng-template>
+      </p-dropdown>
     </div>
     <div class="search-bar">
       <div class="jj-form__form-control">
@@ -35,18 +43,18 @@
 
             <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
           </div>
-          <button class="read-more-button" [routerLink]="['detail', article.id]">Čítaj viac</button>
+          <button class="read-more-button" [routerLink]="['detail', article.id]">{{'jj.readMore' | translate}}</button>
         </div>
 
       </div>
     </div>
   </div>
   <div class="no-articles" *ngIf="dataLength <= 0 && !searchInput.value">
-    V tejto sekcií sa nenachádzajú žiadne články.
+    {{'jj.noArticles' | translate}}
   </div>
 
   <div class="no-articles" *ngIf="dataLength <= 0 && searchInput.value">
-    Žiadne články nezodpovedajú hľadanému výrazu.
+    {{'jj.articleNotFound' | translate}}
   </div>
 
   <mat-paginator class="blog-paginator" #paginator [length]="dataSource.data.length" [pageSize]="5"
