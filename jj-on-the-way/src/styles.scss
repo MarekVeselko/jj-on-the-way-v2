@@ -64,6 +64,26 @@ body {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #409c8c;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #409c8c;
+}
+
 
 h1 {
   font-family: $font-special;

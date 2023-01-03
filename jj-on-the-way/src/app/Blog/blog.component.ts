@@ -5,7 +5,7 @@ import { Article } from '../shared/models/article.model';
 import { ArticlesService } from '../shared/services/articles.service';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 interface Section {
   name: string,
@@ -40,7 +40,12 @@ export class BlogComponent implements OnInit, AfterViewInit {
       { name: 'jj.africa', value: 'africa' },
       { name: 'jj.northAmerica', value: 'northAmerica' },
       { name: 'jj.southAmerica', value: 'southAmerica' },
-    ]
+    ];
+
+    this.translate.onLangChange
+    .subscribe((event: LangChangeEvent) => {
+      this.getItems();
+  });
   }
 
   ngOnInit(): void {
@@ -48,7 +53,8 @@ export class BlogComponent implements OnInit, AfterViewInit {
   }
 
   getItems(searchedText?: string) {
-    this.articleService.getArticles('PUBLISHED', this.sectionType, searchedText).subscribe(response => {
+    const lang = this.translate.currentLang || 'sk';
+    this.articleService.getArticles(lang, 'PUBLISHED', this.sectionType, searchedText).subscribe(response => {
       this.dataSource.data = response;
       this.dataLength = this.dataSource.data.length
     })

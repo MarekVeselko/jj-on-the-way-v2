@@ -17,18 +17,23 @@ const router = Router();
 // ));
 
 
-router.get("/all/:articleType/:sectionType/:searchedText?", expressAsyncHandler(
+router.get("/all/:lang/:articleType/:sectionType/:searchedText?", expressAsyncHandler(
     async (req, res) => {
         const articleType = req.params.articleType;
+        const lang = req.params.lang;
         const searchRegex = new RegExp(req.params.searchedText, 'i');
         const sectionType = req.params.sectionType;
         // const articles = await ArticleModel.find();
         let foundArticles;
         if (articleType === 'PUBLISHED') {
             if (!sectionType || sectionType === 'all') {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
+                if (lang == 'both') {
+                    foundArticles = await ArticleModel.find({ published: true, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
+                } else {
+                    foundArticles = await ArticleModel.find({ published: true, isDeleted: false, language: lang, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
+                }
             } else {
-                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, section: sectionType, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
+                foundArticles = await ArticleModel.find({ published: true, isDeleted: false, language: lang, section: sectionType, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });
             }
         } else if (articleType === 'SAVED') {
             foundArticles = await ArticleModel.find({ published: false, isDeleted: false, title: { $regex: searchRegex } }).sort({ dateCreated: 'desc' });

@@ -36,5 +36,7 @@
   "jj.southAmerica": "South America",
   "jj.general": "General",
   "jj.contactMeText" : "If you are interested in collaboration or just have a question or suggestion, send me a message:",
-  "jj.messageSuccess" : "Message was sent successfully."
+  "jj.messageSuccess" : "Message was sent successfully.",
+  "jj.back" : "Back"
+
 }

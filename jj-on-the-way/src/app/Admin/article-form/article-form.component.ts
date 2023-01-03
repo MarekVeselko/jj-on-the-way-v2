@@ -28,6 +28,7 @@ export class ArticleFormComponent implements OnInit {
         title: new FormControl('', Validators.required),
         titleImage: new FormControl('', Validators.required),
         section: new FormControl('europe', Validators.required),
+        language: new FormControl('sk', Validators.required),
         text: new FormControl([{}]),
         perex: new FormControl(''),
         gallery: new FormControl([''])
@@ -48,6 +49,7 @@ export class ArticleFormComponent implements OnInit {
                 if (this.article) {
                     this.controls.title.patchValue(this.article.title);
                     this.controls.text.patchValue(this.article.text);
+                    this.controls.language.patchValue(this.article.language);
                     this.controls.titleImage.patchValue(this.article.titleImage);
                     this.controls.perex.patchValue(this.article.perex);
                     this.controls.section.patchValue(this.article.section);

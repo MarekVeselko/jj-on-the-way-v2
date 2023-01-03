@@ -1,10 +1,10 @@
 <div class="blog-detail">
-  <button (click)="location.back()" class="jj-back-button">Späť</button>
-  <h1>{{article.title}}</h1>
+  <button (click)="location.back()" class="jj-back-button">{{'jj.back' | translate }}</button>
+  <h1 *ngIf="article?.title">{{article.title}}</h1>
   <div class="perex mar-top-80">
     <!-- <img class='title-photo' *ngIf="article?.titleImage"
       src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt='img' /> -->
-    <p class="pre-element perex__text" [innerHtml]="article.perex"></p>
+    <p *ngIf="article?.perex" class="pre-element perex__text" [innerHtml]="article.perex"></p>
   </div>
 
   <div *ngFor="let text of article?.text; let i = index;" class="text-block mar-top-80">

@@ -7,6 +7,12 @@
             <td mat-cell *matCellDef="let element"> {{element.dateCreated | date: 'MMM d, y' }} </td>
         </ng-container>
 
+
+        <ng-container matColumnDef="lang">
+          <th mat-header-cell *matHeaderCellDef> Jazyk </th>
+          <td mat-cell *matCellDef="let element"> {{toUppercase(element.language)}} </td>
+      </ng-container>
+
         <!-- Name Column -->
         <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef> Názov </th>
@@ -25,9 +31,9 @@
         <!-- Symbol Column -->
         <ng-container matColumnDef="button2">
             <th mat-header-cell *matHeaderCellDef> </th>
-            <td mat-cell *matCellDef="let element"> 
+            <td mat-cell *matCellDef="let element">
                 <button (click)="onArticleSendToBin(element.id)" class="jj-button-small jj-button-error" *ngIf="tabType !== 'BIN'">Odstrániť</button>
-                <button (click)="onArticleDelete(element.id)" class="jj-button-small jj-button-error" *ngIf="tabType === 'BIN'">Odstrániť natrvalo</button>    
+                <button (click)="onArticleDelete(element.id)" class="jj-button-small jj-button-error" *ngIf="tabType === 'BIN'">Odstrániť natrvalo</button>
             </td>
         </ng-container>
 

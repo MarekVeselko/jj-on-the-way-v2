@@ -34,7 +34,7 @@ export class AdminComponent implements OnInit {
   }
 
   getItems(): void {
-    this.articleService.getArticles(this.articleType).subscribe(response => {
+    this.articleService.getArticles('both', this.articleType).subscribe(response => {
       this.articles = response;
     })
   }

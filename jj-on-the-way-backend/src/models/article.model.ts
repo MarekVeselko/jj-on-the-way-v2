@@ -8,6 +8,7 @@ export interface Article {
     gallery: Array<string>,
     dateCreated: Date,
     section: string,
+    language: string,
     id: string,
     isDeleted: boolean,
     published: boolean
@@ -20,6 +21,7 @@ export const ArticleSchema = new Schema<Article>({
     text: [{ type: Object }],
     titleImage: { type: String, required: false },
     section: {type: String, required: true },
+    language: {type: String, required: true},
     gallery: [{ type: String, required: false }],
     dateCreated: { type: Date, required: true },
     isDeleted: { type: Boolean, required: true },

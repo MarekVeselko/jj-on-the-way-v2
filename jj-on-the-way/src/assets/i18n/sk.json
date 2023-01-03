@@ -36,5 +36,7 @@
   "jj.southAmerica": "Južná Amerika",
   "jj.general": "Všeobecné",
   "jj.contactMeText" : "Ak máš záujem o spoluprácu alebo máš len otázku, či podnet, napíš mi správu:",
-  "jj.messageSuccess" : "Správa úspešne odoslaná."
+  "jj.messageSuccess" : "Správa úspešne odoslaná.",
+  "jj.back" : "Späť"
+
 }

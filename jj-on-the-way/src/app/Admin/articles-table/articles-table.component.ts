@@ -11,7 +11,7 @@ import { ArticlesService } from 'src/app/shared/services/articles.service';
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ArticlesTableComponent implements AfterViewInit, OnChanges {
-    displayedColumns: string[] = ['date', 'name', 'button1', 'button2'];
+    displayedColumns: string[] = ['date', 'lang', 'name', 'button1', 'button2'];
     @Input() articles!: Article[];
     @Input() tabType!: string;
     @Output() deleteArticle: EventEmitter<string> = new EventEmitter<string>();
@@ -42,6 +42,11 @@ export class ArticlesTableComponent implements AfterViewInit, OnChanges {
 
     onArticleSendToBin(id: string) {
         this.sendToBinArticle.emit(id);
+    }
+
+    toUppercase(value: string) {
+      if (value) return value.toUpperCase();
+      return '';
     }
 
 }

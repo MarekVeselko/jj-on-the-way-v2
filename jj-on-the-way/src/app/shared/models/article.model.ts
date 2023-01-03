@@ -3,6 +3,7 @@ export class Article {
         public title: string,
         public text: TextBlock[],
         public titleImage: string,
+        public language: string,
         public dateCreated: Date,
         public id: string,
         public perex: string,

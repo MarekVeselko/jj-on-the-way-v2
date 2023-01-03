@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -17,6 +17,7 @@ export class HeaderComponent {
   ];
 
   constructor(private router: Router,
+    private route: ActivatedRoute,
     private translate: TranslateService) {
     router.events.subscribe((val) => {
       this.mobileMenuVisible = false;

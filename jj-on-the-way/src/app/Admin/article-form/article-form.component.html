@@ -6,6 +6,13 @@
         [ngClass]="{'jj-form__input--invalid': !controls.title.valid && controls.title.touched}">
     </div>
     <div class="jj-form__form-control mar-top-40">
+      <label class="jj-form__label" for="title">Jazyk *</label>
+      <mat-radio-group formControlName="language" style="justify-content: start;" class="jj-form__radio-group mar-top-40" aria-label="Select an option">
+        <mat-radio-button style="margin-right: 20px;" [value]="'sk'">Slovenky</mat-radio-button>
+        <mat-radio-button [value]="'en'">Anglicky</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="jj-form__form-control mar-top-40">
       <label class="jj-form__label" for="title">Sekcia *</label>
       <mat-radio-group formControlName="section" class="jj-form__radio-group mar-top-40" aria-label="Select an option">
         <mat-radio-button [value]="'europe'">Európa</mat-radio-button>

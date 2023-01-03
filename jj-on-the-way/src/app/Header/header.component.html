@@ -42,19 +42,19 @@
   <div class="mobile-menu__items">
     <ul class="mobile-menu__items--list">
       <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['']" class="mobile-menu__items--list--item">
-        <a>Domov</a>
+        <a>{{ 'jj.home' | translate }}</a>
       </li>
       <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['blog']"
         class="mobile-menu__items--list--item">
-        <a>Blog</a>
+        <a>{{ 'jj.blog' | translate }}</a>
       </li>
       <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['about-me']"
         class="mobile-menu__items--list--item">
-        <a>O mne</a>
+        <a>{{ 'jj.aboutMe' | translate }}</a>
       </li>
       <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['./contact']"
         class="mobile-menu__items--list--item">
-        <a>Kontakt</a>
+        <a>{{ 'jj.contact' | translate }}</a>
       </li>
     </ul>
   </div>

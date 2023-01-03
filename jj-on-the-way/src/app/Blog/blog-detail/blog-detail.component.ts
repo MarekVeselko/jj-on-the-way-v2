@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Article } from '../../shared/models/article.model';
 import { ArticlesService } from '../../shared/services/articles.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 import { Location } from '@angular/common';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-blog-detail',
@@ -19,8 +20,15 @@ export class BlogDetailComponent implements OnInit {
   constructor(private articleService: ArticlesService,
     private dialog: MatDialog,
     public location: Location,
+    private translate: TranslateService,
     private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef) { }
+    private router: Router,
+    private cdr: ChangeDetectorRef) {
+      this.translate.onLangChange
+      .subscribe((event: LangChangeEvent) => {
+        this.router.navigate(['../../'], {relativeTo: route});
+    });
+  }
 
   ngOnInit(): void {
     this.articleService.getArticle(this.route.snapshot.params['id']).subscribe(response => {
@@ -37,7 +45,7 @@ export class BlogDetailComponent implements OnInit {
 
   openModal(image: string) {
     this.dialog.open(ImageDialogComponent, {
-      data: {img: image},
+      data: { img: image },
       height: '90%',
       width: '90%'
     });
