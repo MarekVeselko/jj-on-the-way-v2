@@ -127,6 +127,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 1200px) {
+  h2 {
+    text-align: center;
+  }
+}
+
 
 @media only screen and (max-width: 1000px) {
   h1 {
@@ -139,4 +145,20 @@ body {
   h1 {
     text-align: center;
   }
+}
+
+
+@media only screen and (max-width: 300px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+
 }

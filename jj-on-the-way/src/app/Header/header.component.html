@@ -18,13 +18,13 @@
   </div>
 
   <div class="language-selector">
-    <img class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="language.value === 'sk'" src="../../assets/icons/slovakia.png" alt="sk">
-    <img class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="language.value === 'en'" src="../../assets/icons/united-kingdom.png" alt="en">
+    <img  class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="translate.currentLang === 'sk'" src="../../assets/icons/slovakia.png" alt="sk">
+    <img  class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="translate.currentLang === 'en'" src="../../assets/icons/united-kingdom.png" alt="en">
 
-    <p-dropdown (onChange)="onLangChange()" #lang [options]="langOptions" [(ngModel)]="language" optionLabel="name"
+    <p-dropdown #lang  [options]="langOptions" optionLabel="value"
       [showClear]="true">
       <ng-template let-country pTemplate="item">
-        <div>
+        <div (click)="onLangChange(country.value)">
           <img style="width: 40px; height: 40px;" [src]="country.imgSrc" />
         </div>
       </ng-template>

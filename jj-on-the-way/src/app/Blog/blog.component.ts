@@ -6,6 +6,7 @@ import { ArticlesService } from '../shared/services/articles.service';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
 
 interface Section {
   name: string,
@@ -31,6 +32,7 @@ export class BlogComponent implements OnInit, AfterViewInit {
 
   constructor(private articleService: ArticlesService,
     private translate: TranslateService,
+    private router: Router,
     private cdr: ChangeDetectorRef) {
     this.sections = [
       { name: 'jj.all', value: 'all' },
@@ -44,7 +46,9 @@ export class BlogComponent implements OnInit, AfterViewInit {
 
     this.translate.onLangChange
     .subscribe((event: LangChangeEvent) => {
-      this.getItems();
+      if (this.router.url === '/blog') {
+        this.getItems();
+      }
   });
   }
 

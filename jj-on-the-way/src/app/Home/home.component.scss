@@ -2,6 +2,7 @@
 
 h1 {
   padding: 40px 0 20px 0;
+  text-align: center;
 }
 
 .homepage-hello {
@@ -28,7 +29,6 @@ h1 {
     justify-content: flex-end;
 
     &__img {
-      margin-top: 100px;
       width: 80%;
       object-fit: cover;
       max-height: 400px;
@@ -83,6 +83,7 @@ h1 {
       flex-direction: column;
       height: auto !important;
       justify-content: space-between;
+      align-items: center;
 
 
       &:hover img {
@@ -90,7 +91,7 @@ h1 {
       }
 
       .article-preview-image {
-        height: 350px;
+        height: 250px;
         object-fit: fill;
       }
 
@@ -100,15 +101,23 @@ h1 {
         opacity: 0;
         visibility: hidden;
         width: 80%;
-        height: 350px;
+        height: 250px;
         position: relative;
-        left: 40px;
 
         .article-title {
           text-align: center;
           font-size: 16px;
           font-weight: 600;
+          width: 100%;
+          text-align: center;
 
+
+          &__text {
+            max-width: 95%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
           hr {
             border: none;
             border-bottom: 2px solid #fff;
@@ -145,6 +154,7 @@ h1 {
       justify-content: center;
       &__img {
         max-height: none;
+        margin-top: 100px;
       }
     }
   }
@@ -175,7 +185,6 @@ h1 {
       }
 
       .article-title__text {
-        height: 75px;
         color: $clr-green-primary;
       }
 
@@ -234,6 +243,7 @@ h1 {
       border-right: none;
 
     }
+
     .article-title__text {
       height: auto !important;
     }

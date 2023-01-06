@@ -24,15 +24,12 @@ export class BlogDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private cdr: ChangeDetectorRef) {
-      this.translate.onLangChange
-      .subscribe((event: LangChangeEvent) => {
-        this.router.navigate(['../../'], {relativeTo: route});
-    });
   }
 
   ngOnInit(): void {
     this.articleService.getArticle(this.route.snapshot.params['id']).subscribe(response => {
       this.article = response;
+      this.translate.use(this.article.language);
       this.showGallery = this.article.gallery.length > 0;
       this.cdr.markForCheck();
     })

@@ -1,35 +1,44 @@
 @import '../shared/styles/variables.scss';
 
 .contact-me {
+  width: 100%;
+
+  .info-text {
+    margin: 20px 0;
+    font-size: 22px;
+    font-family: $font-normal;
+  }
+
+
+  .mar-top-40 {
+    margin-top: 40px;
+  }
+
+  .email-success {
+    display: flex;
+    justify-content: center;
     width: 100%;
+    margin-top: 150px;
 
+    svg {
+      fill: $clr-green-primary;
+    }
+
+    p {
+      margin-top: 50px;
+      font-family: $font-normal;
+      font-size: 30px;
+      font-weight: 600;
+      color: $clr-green-primary;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .contact-me {
     .info-text {
-        margin: 20px 0;
-        font-size: 22px;
-        font-family: $font-normal;
+      font-size: 16px;
     }
-
-
-    .mar-top-40 {
-        margin-top: 40px;
-    }
-
-    .email-success {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        margin-top: 150px;
-
-        svg {
-            fill: $clr-green-primary;
-        }
-
-        p {
-            margin-top: 50px;
-            font-family: $font-normal;
-            font-size: 30px;
-            font-weight: 600;
-            color: $clr-green-primary;
-        }
-    }
+  }
 }

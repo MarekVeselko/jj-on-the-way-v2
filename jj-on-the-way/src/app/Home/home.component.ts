@@ -1,5 +1,6 @@
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, OnInit, ChangeDetectorRef, HostListener, Renderer2, Inject, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Article } from '../shared/models/article.model';
 import { ArticlesService } from '../shared/services/articles.service';
@@ -20,13 +21,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   constructor(private articleService: ArticlesService,
     private mapService: MapService,
+    private router: Router,
     private renderer2: Renderer2,
     private translate: TranslateService,
     @Inject(DOCUMENT) private document: Document,
     private cdr: ChangeDetectorRef) {
       this.translate.onLangChange
       .subscribe((event: LangChangeEvent) => {
-        this.getItems();
+        if (this.router.url === '/') {
+          this.getItems();
+        }
     });
      }
 

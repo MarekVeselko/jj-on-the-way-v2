@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +10,6 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class HeaderComponent {
   mobileMenuVisible = false;
-  language = { name: 'sk', value: 'sk' };
   langOptions = [
     { name: 'SK', value: 'sk', imgSrc: './assets/icons/slovakia.png' },
     { name: 'EN', value: 'en', imgSrc: './assets/icons/united-kingdom.png' }
@@ -18,13 +17,20 @@ export class HeaderComponent {
 
   constructor(private router: Router,
     private route: ActivatedRoute,
-    private translate: TranslateService) {
+    public translate: TranslateService) {
     router.events.subscribe((val) => {
       this.mobileMenuVisible = false;
     });
+
   }
 
-  onLangChange() {
-    this.translate.use(this.language.value);
+  onLangChange(lang: string) {
+    this.translate.use(lang);
+    if (this.router.url.startsWith('/blog/detail/')) {
+      setTimeout(() => {
+        this.router.navigate(['./blog']);
+      }, 200)
+    }
+
   }
 }
