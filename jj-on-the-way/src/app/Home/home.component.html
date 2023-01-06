@@ -41,7 +41,8 @@
             <hr>
           </div>
           <div class="article-text">
-            <p [innerHtml]="truncate(article.perex, 150, '...')"></p>
+            <p *ngIf="screenWidth >= 1200" [innerHtml]="truncate(article.perex, 150, '...')"></p>
+            <p *ngIf="screenWidth < 1200" [innerHtml]="truncate(article.perex, 270, '...')"></p>
           </div>
         </div>
       </div>
