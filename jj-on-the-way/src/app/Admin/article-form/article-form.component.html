@@ -7,7 +7,8 @@
     </div>
     <div class="jj-form__form-control mar-top-40">
       <label class="jj-form__label" for="title">Jazyk *</label>
-      <mat-radio-group formControlName="language" style="justify-content: start;" class="jj-form__radio-group mar-top-40" aria-label="Select an option">
+      <mat-radio-group formControlName="language" style="justify-content: start;"
+        class="jj-form__radio-group mar-top-40" aria-label="Select an option">
         <mat-radio-button style="margin-right: 20px;" [value]="'sk'">Slovenky</mat-radio-button>
         <mat-radio-button [value]="'en'">Anglicky</mat-radio-button>
       </mat-radio-group>
@@ -22,6 +23,10 @@
         <mat-radio-button [value]="'southAmerica'">Južná Amerika</mat-radio-button>
         <mat-radio-button [value]="'general'">Všeobecné</mat-radio-button>
       </mat-radio-group>
+    </div>
+    <div class="jj-form__form-control mar-top-40" style="width: 50%;">
+      <label class="jj-form__label" for="title">Lokácia</label>
+      <input type="text" formControlName="country" class="jj-form__input">
     </div>
     <div class="jj-form__form-control mar-top-40">
       <label class="jj-form__label" for="titleImage">URL - Titulná fotka *</label>

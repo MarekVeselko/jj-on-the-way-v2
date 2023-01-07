@@ -13,15 +13,15 @@
   </div>
 </div>
 
-<div class="homepage-map">
+<div class="homepage-map" id="map">
   <h1>{{'jj.places' | translate }}</h1>
   <div class="map-box">
     <div *ngFor="let pin of pins">
-      <svg class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
+      <svg (click)="onPinClick(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
         <use xlink:href="assets/icons/sprite.svg#icon-location"></use>
       </svg>
     </div>
-    <img src="../../assets/images/map.png" alt="map" class="map-img">
+    <img #image src="../../assets/images/map.png" alt="map" class="map-img">
   </div>
 
 </div>

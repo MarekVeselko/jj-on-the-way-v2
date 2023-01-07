@@ -3,7 +3,8 @@
 
   <div class="map-box">
     <div *ngFor="let pin of pins">
-      <svg (click)="markPin(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x" [ngClass]="{'fill-red': checkNewPin(pin.x,pin.y)}">
+      <svg (click)="markPin(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x"
+        [ngClass]="{'fill-red': checkNewPin(pin.x,pin.y)}">
         <use xlink:href="assets/icons/sprite.svg#icon-location"></use>
       </svg>
     </div>
@@ -16,12 +17,22 @@
       <button class="jj-button-big jj-button-error" (click)="deleteMode = true">Vymazať pinku</button>
     </div>
 
+    <form [formGroup]="form">
+      <div *ngIf="pinAdded" class="jj-form__form-control mar-top-40" style="width: 50%;">
+        <label class="jj-form__label" for="title">Lokácia <span style="font-size: 12px; color: #999; margin-right: 5px;">(Musí byť na vlas rovnaká s lokáciou priradenou k článku)</span> </label>
+        <input type="text" formControlName="country" style="background-color: transparent;" class="jj-form__input">
+      </div>
+    </form>
 
-    <div *ngIf="addMode || deleteMode" class="space-between">
-      <button (click)="setMap()" class="jj-button-big" [ngClass]="{'jj-button-success': addMode, 'jj-button-error': deleteMode}">Potvrdiť</button>
-      <button (click)="deleteLast()" [disabled]="newPins.length < 1" *ngIf="addMode" class="jj-button-big jj-button-error" >Vymazať poslednú</button>
+
+
+    <div *ngIf="addMode || deleteMode" class="space-between mar-top-40">
+      <button (click)="setMap()" class="jj-button-big"
+        [ngClass]="{'jj-button-success': addMode, 'jj-button-error': deleteMode}">Potvrdiť</button>
       <button (click)="cancel()" class="jj-button-big jj-button-info">Zrušiť</button>
     </div>
+
+
   </div>
 
 </div>

@@ -29,6 +29,7 @@ export class ArticleFormComponent implements OnInit {
         titleImage: new FormControl('', Validators.required),
         section: new FormControl('europe', Validators.required),
         language: new FormControl('sk', Validators.required),
+        country: new FormControl(''),
         text: new FormControl([{}]),
         perex: new FormControl(''),
         gallery: new FormControl([''])
@@ -51,6 +52,7 @@ export class ArticleFormComponent implements OnInit {
                     this.controls.text.patchValue(this.article.text);
                     this.controls.language.patchValue(this.article.language);
                     this.controls.titleImage.patchValue(this.article.titleImage);
+                    this.controls.country.patchValue(this.article.country);
                     this.controls.perex.patchValue(this.article.perex);
                     this.controls.section.patchValue(this.article.section);
                     if (this.article.gallery.length > 0) {

@@ -46,10 +46,12 @@ router.get("/all/:lang/:articleType/:sectionType/:searchedText?", expressAsyncHa
     }
 ));
 
-router.get("/search/:searchedTerm", expressAsyncHandler(
+router.get("/articlesByCountry/:lang/:country", expressAsyncHandler(
     async (req, res) => {
-        const searchRegex = new RegExp(req.params.searchedTerm, 'i');
-        const foundArticles = await ArticleModel.find({ name: { $regex: searchRegex } });
+        const country = req.params.country;
+        const language = req.params.lang;
+        console.log(country)
+        const foundArticles = await ArticleModel.find({ country: country, language: language, published: true, isDeleted: false });
         res.send(foundArticles);
     }
 ));

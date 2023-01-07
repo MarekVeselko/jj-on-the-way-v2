@@ -17,12 +17,18 @@ import { ArticleDialogComponent } from '../article-dialog/article-dialog.compone
 })
 export class EditMapComponent implements OnInit {
   @ViewChild('image') image!: ElementRef;
-  pins!: { x: string, y: string }[];
-  newPins: { x: string, y: string }[] = [];
-  pinsForDelete: { x: string, y: string }[] = [];
+  pins!: { x: string, y: string, country: string }[];
+  newPins: { x: string, y: string, country: string }[] = [];
+  pinsForDelete: { x: string, y: string, country: string }[] = [];
+  pinAdded = false;
   id!: string;
   addMode = false;
   deleteMode = false;
+
+  controls = {
+    country: new FormControl('')
+  }
+  form: FormGroup = new FormGroup(this.controls);
   constructor(private mapService: MapService,
     public location: Location,
     private router: Router,
@@ -51,8 +57,9 @@ export class EditMapComponent implements OnInit {
     if (this.addMode) {
       const positionX = (((e.offsetX - 5) * 100) / this.image.nativeElement.offsetWidth).toString() + "%";
       const positionY = (((e.offsetY - 5) * 100) / this.image.nativeElement.offsetHeight).toString() + "%";
-      this.pins.push({ x: positionX, y: positionY });
-      this.newPins.push({ x: positionX, y: positionY });
+      this.pins.push({ x: positionX, y: positionY, country: '' });
+      this.newPins.push({ x: positionX, y: positionY, country: '' });
+      this.pinAdded = true;
       this.cdr.markForCheck();
     }
   }
@@ -69,19 +76,21 @@ export class EditMapComponent implements OnInit {
   }
 
   cancel() {
+    this.controls.country.patchValue(null);
     if (this.addMode) {
       this.newPins.forEach(pin => {
         const index = this.pins.indexOf(pin);
         this.pins.splice(index, 1);
       });
     }
+    this.pinAdded = false;
     this.newPins = [];
     this.pinsForDelete = [];
     this.addMode = false;
     this.deleteMode = false;
   }
 
-  markPin(pin: { x: string, y: string }) {
+  markPin(pin: { x: string, y: string, country: string }) {
     if (this.deleteMode) {
       this.pinsForDelete.push(pin);
     }
@@ -89,6 +98,14 @@ export class EditMapComponent implements OnInit {
 
   setMap() {
     const dialogRef = this.dialog.open(ArticleDialogComponent);
+
+    if (this.addMode && this.newPins[0]) {
+      this.pins.map(pin => {
+        if (pin.x == this.newPins[0].x && pin.y == this.newPins[0].y) {
+          pin.country = this.controls.country.value || '';
+        }
+      })
+    }
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -115,6 +132,8 @@ export class EditMapComponent implements OnInit {
               this.getItems();
               this.addMode = false;
               this.deleteMode = false;
+              this.pinAdded = false;
+              this.controls.country.patchValue(null);
               this.newPins = [];
               this.pinsForDelete = [];
             })

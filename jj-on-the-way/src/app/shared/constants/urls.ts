@@ -3,6 +3,7 @@ import { environment } from "src/environments/environment";
 const BASE_URL = environment.production ? '' : "http://localhost:5000/";
 
 export const GET_ARTICLES_URL = BASE_URL + 'api/articles/all/';
+export const GET_ARTICLE_BY_COUNTRY_URL = BASE_URL + 'api/articles/articlesByCountry/';
 export const GET_ARTICLE_URL = BASE_URL + 'api/articles/article/';
 export const CREATE_ARTICLE_URL = BASE_URL + 'api/articles/create';
 export const DELETE_ARTICLE_URL = BASE_URL + 'api/articles/delete/';

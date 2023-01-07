@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
 import { Article } from '../models/article.model';
-import { CREATE_ARTICLE_URL, DELETE_ARTICLE_URL, EDIT_ARTICLE_URL, GET_ARTICLES_URL, GET_ARTICLE_URL } from '../constants/urls';
+import { CREATE_ARTICLE_URL, DELETE_ARTICLE_URL, EDIT_ARTICLE_URL, GET_ARTICLES_URL, GET_ARTICLE_BY_COUNTRY_URL, GET_ARTICLE_URL } from '../constants/urls';
 
 
 @Injectable({
@@ -17,11 +17,19 @@ export class ArticlesService {
     const section = sectionType ? sectionType : 'all';
     if (searchedText) url = articleType + '/' + section + '/' + searchedText;
     else url = lang + '/' + articleType + '/' + section;
-      return this.http.get<Article[]>(GET_ARTICLES_URL + url);
+    return this.http.get<Article[]>(GET_ARTICLES_URL + url);
   }
 
   getArticle(id: string): Observable<Article> {
     return this.http.get<Article>(GET_ARTICLE_URL + id);
+  }
+
+  getArticleByCountry(lang: string, country: string): Observable<Article> {
+    return this.http.get<Article[]>(GET_ARTICLE_BY_COUNTRY_URL + lang + '/' + country)
+      .pipe(map(response => {
+        return response[0];
+      }))
+
   }
 
   createArticle(data: Article): Observable<any> {

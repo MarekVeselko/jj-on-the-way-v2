@@ -5,6 +5,7 @@ export class Article {
         public titleImage: string,
         public language: string,
         public dateCreated: Date,
+        public country: string,
         public id: string,
         public perex: string,
         public gallery: string[],
