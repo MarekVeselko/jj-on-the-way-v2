@@ -50,7 +50,6 @@ router.get("/articlesByCountry/:lang/:country", expressAsyncHandler(
     async (req, res) => {
         const country = req.params.country;
         const language = req.params.lang;
-        console.log(country)
         const foundArticles = await ArticleModel.find({ country: country, language: language, published: true, isDeleted: false });
         res.send(foundArticles);
     }
