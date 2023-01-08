@@ -35,6 +35,7 @@ $jj-on-the-way-theme: mat.define-light-theme((color: (primary: $jj-on-the-way-pr
 @import "./app/shared/styles/tabs.scss";
 @import "./app/shared/styles/table.scss";
 @import "./app/shared/styles/forms.scss";
+@import "./app/shared/styles/tooltip.scss";
 @import "./app/shared/styles/selects.scss";
 @import '~ngx-toastr/toastr';
 @import "./app/shared/styles/bubble.scss";

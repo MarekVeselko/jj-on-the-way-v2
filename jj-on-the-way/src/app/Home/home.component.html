@@ -17,7 +17,7 @@
   <h1>{{'jj.places' | translate }}</h1>
   <div class="map-box">
     <div *ngFor="let pin of pins">
-      <svg (click)="onPinClick(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
+      <svg [tooltip]="pin.country" (click)="onPinClick(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
         <use xlink:href="assets/icons/sprite.svg#icon-location"></use>
       </svg>
     </div>

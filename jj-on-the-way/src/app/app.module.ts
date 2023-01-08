@@ -45,6 +45,7 @@ import { ImageDialogComponent } from './Blog/blog-detail/image-dialog/image-dial
 import { EditMapComponent } from './Admin/edit-map/edit-map.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TooltipDirective } from './shared/directives/tooltip.directive';
 
 
 @NgModule({
@@ -68,8 +69,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
     EditArticleComponent,
     LoginPageComponent,
     LoadingComponent,
-    SnackBarComponent
-
+    SnackBarComponent,
+    TooltipDirective
   ],
   imports: [
     BrowserModule,
