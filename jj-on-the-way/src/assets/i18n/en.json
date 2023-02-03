@@ -4,10 +4,10 @@
   "jj.aboutMe": "About me",
   "jj.contact": "Contact",
   "jj.hello": "Hello!",
-  "jj.aboutMeTextShort": "Welcome to my travel blog. My name is Janka and my life is constantly pulling me in different directions. I discovered my passion for traveling already in my teenage years. Since then, this passion has been constantly deepening and I am sure that my life is simply connected with getting to know our beautiful planet.",
-  "jj.aboutMeTextLong1" : "Welcome to my travel blog. My name is Janka and my life is constantly pulling me in different directions. I discovered my passion for traveling already in my teenage years. Since then, this passion has been constantly deepening and I am sure that my life is simply connected with getting to know our beautiful planet.",
-  "jj.aboutMeTextLong2" : "I come from the capital of Slovakia, Bratislava. My wandering legs have taken me to many places in Europe, North America, and Asia. I tried life in cold Norway, but also in diverse America. My immediate travel plans are to Southeast Asia and South America for local adventure.",
-  "jj.aboutMeTextLong3" : "Family and friends consider me a reliable travel planner. They know that if I go on a trip with them, they don't need to arrange and solve almost anything and they can simply rely on me. It gives me absolute joy, which can be observed already at the initial initiative of vacationing in the form of bright sparkles in the eyes. That's why I decided to share this passion with you.",
+  "jj.aboutMeTextShort": "Welcome to my travel blog. My name is Janka and my life is closely related to getting to know our beautiful planet earth and new cultures. I discovered my passion for travelling in my early teenage years. Since then, this passion has been constantly growing.",
+  "jj.aboutMeTextLong1" : "Welcome to my travel blog. My name is Janka and my life is closely related to getting to know our beautiful planet earth and new cultures. I discovered my passion for travelling in my early teenage years. Since then, this passion has been constantly growing.",
+  "jj.aboutMeTextLong2" : "I come from the capital of a small European country Slovakia, Bratislava. And my wandering legs have taken me to many places in Europe, North America and Asia. I have tried living in cold Norway and diverse USA. Recently, I quit my corporate job, got a one way ticket to Bangkok and I am traveling around the world with focus on Southeast Asia, New Zealand and Latin America.",
+  "jj.aboutMeTextLong3" : "My family and friends consider me as a reliable travel organizer. They do not need to arrange or think about anything, because they can simply rely on me. It gives me absolute joy and that is why I decided to share this passion also with you.",
   "jj.places": "Places, I've visited",
   "jj.newestArticles": "Newest articles",
   "jj.articles": "Articles",
@@ -38,5 +38,6 @@
   "jj.contactMeText" : "If you are interested in collaboration or just have a question or suggestion, send me a message:",
   "jj.messageSuccess" : "Message was sent successfully.",
   "jj.back" : "Back",
-  "jj.noArticlesForLocation" : "There is no article for this location."
+  "jj.noArticlesForLocation" : "There is no article for this location.",
+  "jj.commingSoon" : "In progress..."
 }

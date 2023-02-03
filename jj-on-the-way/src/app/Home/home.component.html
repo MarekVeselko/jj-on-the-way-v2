@@ -17,7 +17,8 @@
   <h1>{{'jj.places' | translate }}</h1>
   <div class="map-box">
     <div *ngFor="let pin of pins">
-      <svg [tooltip]="pin.country" (click)="onPinClick(pin)" class="icon-location" [style.top]="pin.y" [style.left]="pin.x">
+      <svg [tooltip]="pin.country" (click)="onPinClick(pin)" class="icon-location" [style.top]="pin.y"
+        [style.left]="pin.x">
         <use xlink:href="assets/icons/sprite.svg#icon-location"></use>
       </svg>
     </div>
@@ -29,8 +30,9 @@
 <div class="homepage-articles">
   <h1>{{'jj.newestArticles' | translate }}</h1>
   <div *ngIf="articles && articles.length > 0" class="articles">
-    <carousel [cellWidth]="'100%'" [height]="screenWidth > 1200 ? 250 : 650" [cellsToShow]="articlesPerPage" [dots]="true"
-      [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'" [objectFit]="'contain'">
+    <carousel [cellWidth]="'100%'" [height]="screenWidth > 1200 ? 250 : 650" [cellsToShow]="articlesPerPage"
+      [dots]="true" [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'"
+      [objectFit]="'contain'">
       <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell"
         [routerLink]="['../blog/detail', article.id]">
         <img class="article-preview-image"
@@ -49,14 +51,12 @@
     </carousel>
   </div>
   <div class="no-articles" style="display: flex; justify-content: center;" *ngIf="articles?.length == 0">
-      {{'jj.noArticles' | translate }}
+    {{'jj.commingSoon' | translate }}
   </div>
 </div>
 
 <div class="instagram">
   <h1>{{'jj.myInstagram' | translate }}</h1>
-  <div class="embedsocial-hashtag" data-ref="343c5fe4ce457ea71760f56e0384d9d6a7cb40ce"> <a
-      class="feed-powered-by-es feed-powered-by-es-feed-new" href="https://embedsocial.com/social-media-aggregator/"
-      target="_blank" title="Widget by EmbedSocial"> Widget by EmbedSocial<span>→</span> </a> </div>
+  <iframe src="//lightwidget.com/widgets/e4755fca262351aeab8f8dce64d1640e.html" scrolling="no" allowtransparency="true"
+    class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
 </div>
-

@@ -13,7 +13,7 @@ import { MapService } from '../shared/services/map.service';
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   @ViewChild('image') image!: ElementRef;
   articles!: Article[];
   public screenWidth!: number;
@@ -39,9 +39,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
     this.getNumberOfArticlesPerPage();
-    this.script = this.renderer2.createElement('script');
-    this.script.text = '(function(d, s, id) { var js; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "https://embedsocial.com/cdn/ht.js"; d.getElementsByTagName("head")[0].appendChild(js); }(document, "script", "EmbedSocialHashtagScript"));';
-    this.renderer2.appendChild(this.document.body, this.script);
     this.getItems();
     this.mapService.getMap().subscribe(response => {
       this.pins = response[0].pins;
@@ -120,14 +117,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.document.getElementById('article-bubble')) {
       this.document.getElementById("article-bubble")?.remove();
     }
-  }
-
-  ngOnDestroy(): void {
-    this.renderer2.removeChild(this.document.body, this.script);
-    this.renderer2.removeChild(this.document.body, this.document.getElementById('EmbedSocialHashtagScript'));
-    this.renderer2.removeChild(this.document.body, this.document.getElementById('EmbedSocialNewPopup'));
-    this.renderer2.removeChild(this.document.body, this.document.getElementById('EmbedSocialIFrame'));
-
   }
 
   getImageId(url: string) {

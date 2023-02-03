@@ -17,18 +17,9 @@
     </ul>
   </div>
 
-  <div class="language-selector">
-    <img  class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="translate.currentLang === 'sk'" src="../../assets/icons/slovakia.png" alt="sk">
-    <img  class="preview-imaga" style="width: 40px; height: 40px;" *ngIf="translate.currentLang === 'en'" src="../../assets/icons/united-kingdom.png" alt="en">
-
-    <p-dropdown #lang  [options]="langOptions" optionLabel="value"
-      [showClear]="true">
-      <ng-template let-country pTemplate="item">
-        <div (click)="onLangChange(country.value)">
-          <img style="width: 40px; height: 40px;" [src]="country.imgSrc" />
-        </div>
-      </ng-template>
-    </p-dropdown>
+  <div *ngIf="screenWidth > 1200" class="language-selector">
+    <p-dropdown (onChange)="onLangChange(lang.value.value)" #lang [options]="langOptions" optionLabel="nameShort"
+      [showClear]="true"></p-dropdown>
   </div>
 
   <div class="nav-bar__hamburger" (click)="mobileMenuVisible = !mobileMenuVisible">
@@ -55,6 +46,12 @@
       <li (click)="mobileMenuVisible = !mobileMenuVisible" [routerLink]="['./contact']"
         class="mobile-menu__items--list--item">
         <a>{{ 'jj.contact' | translate }}</a>
+      </li>
+      <li style="width: 100%;">
+        <div class="language-selector-mobile">
+          <p-dropdown (onChange)="onLangChange(lang.value.value)" #lang [options]="langOptions" optionLabel="nameLong"
+            [showClear]="true"></p-dropdown>
+        </div>
       </li>
     </ul>
   </div>

@@ -38,6 +38,7 @@
   "jj.contactMeText" : "Ak máš záujem o spoluprácu alebo máš len otázku, či podnet, napíš mi správu:",
   "jj.messageSuccess" : "Správa úspešne odoslaná.",
   "jj.back" : "Späť",
-  "jj.noArticlesForLocation" : "Pre danú lokalitu nebol najdený žiaden článok"
+  "jj.noArticlesForLocation" : "Pre danú lokalitu nebol najdený žiaden článok",
+  "jj.commingSoon": "Na člankoch sa pracuje..."
 
 }
