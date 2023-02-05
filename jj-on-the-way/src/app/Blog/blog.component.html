@@ -6,7 +6,7 @@
 
     <div class="filter-section">
       <div *ngIf="!searchMode" class="jj-select">
-        <p-dropdown (onChange)="getItems(searchInput.value)" [options]="sections"
+        <p-dropdown (onChange)="getItems()" [options]="sections"
           placeholder="{{'jj.section' | translate}}" [(ngModel)]="sectionType" [showClear]="true">
           <ng-template pTemplate="item" let-item>
             {{item.name | translate}}
