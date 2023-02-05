@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef, ElementRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Article } from '../shared/models/article.model';
@@ -25,9 +25,11 @@ export class BlogComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource<Article>();
   sectionType!: string;
   @ViewChild('paginator') paginator!: MatPaginator;
+  @ViewChild('searchInput') searchInput!: ElementRef;
   paginatorIndex = 0;
   sections: Section[];
   timeout: any = null;
+  searchMode = false;
 
 
   constructor(private articleService: ArticlesService,
@@ -45,11 +47,11 @@ export class BlogComponent implements OnInit, AfterViewInit {
     ];
 
     this.translate.onLangChange
-    .subscribe((event: LangChangeEvent) => {
-      if (this.router.url === '/blog') {
-        this.getItems();
-      }
-  });
+      .subscribe((event: LangChangeEvent) => {
+        if (this.router.url === '/blog') {
+          this.getItems();
+        }
+      });
   }
 
   ngOnInit(): void {
@@ -76,10 +78,25 @@ export class BlogComponent implements OnInit, AfterViewInit {
   }
 
   search(searchedText?: string) {
-    clearTimeout(this.timeout);
-    this.timeout = setTimeout(()=>{
+    // clearTimeout(this.timeout);
+    // this.timeout = setTimeout(() => {
+    //   this.getItems(searchedText);
+    // }, 500);
+    if (this.searchMode) {
       this.getItems(searchedText);
-    }, 500);
+      this.searchMode = false;
+    }
+
+  }
+
+  onSetSearchMode() {
+    this.searchMode = !this.searchMode;
+
+    if (this.searchMode) {
+      setTimeout(() => {
+        this.searchInput.nativeElement.focus();
+      }, 0);
+    }
   }
 
 

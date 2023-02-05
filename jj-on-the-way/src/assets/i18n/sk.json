@@ -39,6 +39,6 @@
   "jj.messageSuccess" : "Správa úspešne odoslaná.",
   "jj.back" : "Späť",
   "jj.noArticlesForLocation" : "Pre danú lokalitu nebol najdený žiaden článok",
-  "jj.commingSoon": "Na člankoch sa pracuje..."
-
+  "jj.commingSoon": "Na člankoch sa pracuje...",
+  "jj.searchEnter": "Napíš hľadaný výraz a stlač Enter"
 }

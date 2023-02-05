@@ -39,5 +39,7 @@
   "jj.messageSuccess" : "Message was sent successfully.",
   "jj.back" : "Back",
   "jj.noArticlesForLocation" : "There is no article for this location.",
-  "jj.commingSoon" : "In progress..."
+  "jj.commingSoon" : "In progress...",
+  "jj.searchEnter": "Type and hit Enter"
+
 }

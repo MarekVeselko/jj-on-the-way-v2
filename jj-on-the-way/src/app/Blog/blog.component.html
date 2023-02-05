@@ -1,29 +1,38 @@
 <div class="blog">
-  <h1 style="text-align: center;"> {{'jj.articles' | translate}} </h1>
   <div class="blog-top">
-    <div class="jj-select">
-      <p-dropdown (onChange)="getItems(searchInput.value)" [options]="sections"
-        placeholder="{{'jj.section' | translate}}" [(ngModel)]="sectionType" [showClear]="true">
-        <ng-template pTemplate="item" let-item>
-          {{item.name | translate}}
-        </ng-template>
-        <ng-template let-selectedItem pTemplate="selectedItem">
-          {{selectedItem.name | translate}}
-        </ng-template>
-      </p-dropdown>
-    </div>
-    <div class="search-bar">
-      <div class="jj-form__form-control">
-        <label class="jj-form__label" for="search">
-          <svg>
-            <use xlink:href="assets/icons/sprite.svg#icon-search"></use>
-          </svg>
-        </label>
-        <input (input)="search(searchInput.value)" type="text" id="search" style="background-color: transparent;"
-          #searchInput class="jj-form__input">
-      </div>
+    <div>
+      <h1 style="text-align: center;"> {{'jj.articles' | translate}} </h1>
     </div>
 
+    <div class="filter-section">
+      <div *ngIf="!searchMode" class="jj-select">
+        <p-dropdown (onChange)="getItems(searchInput.value)" [options]="sections"
+          placeholder="{{'jj.section' | translate}}" [(ngModel)]="sectionType" [showClear]="true">
+          <ng-template pTemplate="item" let-item>
+            {{item.name | translate}}
+          </ng-template>
+          <ng-template let-selectedItem pTemplate="selectedItem">
+            {{selectedItem.name | translate}}
+          </ng-template>
+        </p-dropdown>
+      </div>
+      <div class="search-bar" [ngClass]="{'w-100': searchMode}">
+        <div class="jj-form__form-control">
+          <label *ngIf="!searchMode" (click)="onSetSearchMode()" style="cursor: pointer;" class="jj-form__label" for="search">
+            <svg>
+              <use xlink:href="assets/icons/sprite.svg#icon-search"></use>
+            </svg>
+          </label>
+          <input [ngClass]="{'input-invisible': !searchMode}" (keydown.Enter)="search(searchInput.value)" placeholder="{{'jj.searchEnter' | translate}}" type="text" id="search" style="background-color: transparent;"
+            #searchInput class="jj-form__input">
+            <label *ngIf="searchMode" (click)="onSetSearchMode()" style="cursor: pointer;" class="jj-form__label" for="search">
+              <svg>
+                <use xlink:href="assets/icons/sprite.svg#icon-cross"></use>
+              </svg>
+            </label>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div *ngIf="dataLength > 0">

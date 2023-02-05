@@ -45,3 +45,18 @@
         color: #bebcc2;
     }
 }
+
+
+@media screen and (max-width: 600px) {
+  .footer__icons {
+    margin: 0 2% !important;
+
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .footer__icons {
+    display: none;
+
+  }
+}

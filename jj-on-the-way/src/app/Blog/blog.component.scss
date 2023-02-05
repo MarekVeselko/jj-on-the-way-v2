@@ -6,12 +6,23 @@
     display: flex;
     justify-content: space-between;
 
+    .filter-section {
+      width: 40%;
+      display: flex;
+      align-items: center;
+    }
+
     .jj-select {
-      width: 30%;
+      width: 100%;
       flex-direction: column;
-      align-self: flex-end;
       display: flex;
       justify-content: flex-end;
+      height: 50px !important;
+    }
+
+
+    .w-100 {
+      width: 100% !important;
     }
 
     .search-bar {
@@ -19,8 +30,6 @@
       display: flex;
       justify-content: flex-end;
       flex-direction: column;
-      width: 40%;
-      align-self: center;
 
       .jj-form__form-control {
         width: 100%;
@@ -31,11 +40,18 @@
           width: 100%;
         }
 
+        .input-invisible {
+          width: 0 !important;
+          visibility: hidden;
+          opacity: 0;
+        }
+
         label svg {
           width: 18px;
           height: 18px;
           margin-top: 10px;
           margin-right: 10px;
+          margin-left: 20px;
         }
       }
     }
@@ -134,19 +150,23 @@
     h1 {
       text-align: center;
     }
+
+    .filter-section {
+      width: 80% !important;
+      align-self: center;
+    }
+
     .blog-top {
       margin-top: 20px;
-      flex-direction: column-reverse;
+      flex-direction: column;
 
       .search-bar {
         align-self: center;
-        width: 75%;
         margin-top: 20px;
       }
 
       .jj-select {
         align-self: center;
-        width: 75%;
         margin-top: 20px;
       }
     }

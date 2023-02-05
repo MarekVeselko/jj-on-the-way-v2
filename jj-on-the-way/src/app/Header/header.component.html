@@ -18,7 +18,7 @@
   </div>
 
   <div *ngIf="screenWidth > 1200" class="language-selector">
-    <p-dropdown (onChange)="onLangChange(lang.value.value)" #lang [options]="langOptions" optionLabel="nameShort"
+    <p-dropdown (onChange)="onLangChange(lang.value.value)" #lang [options]="langOptions" optionLabel="name"
       [showClear]="true"></p-dropdown>
   </div>
 
@@ -49,8 +49,15 @@
       </li>
       <li style="width: 100%;">
         <div class="language-selector-mobile">
-          <p-dropdown (onChange)="onLangChange(lang.value.value)" #lang [options]="langOptions" optionLabel="nameLong"
-            [showClear]="true"></p-dropdown>
+          <p-dropdown (onChange)="onLangChange(lang.value.value)" #lang [options]="langOptions" optionLabel="name"
+            [showClear]="true">
+            <ng-template let-country pTemplate="item">
+              <div style="display: flex; justify-content: space-between;">
+                <label style="margin-top: 10px; margin-right: 10px;">{{country.name}}</label>
+                <img style="width: 40px; height: 40px;" [src]="country.imgSrc" />
+              </div>
+            </ng-template>
+          </p-dropdown>
         </div>
       </li>
     </ul>

@@ -12,8 +12,8 @@ export class HeaderComponent {
   screenWidth: number;
   mobileMenuVisible = false;
   langOptions = [
-    { nameShort: 'SK', nameLong: 'Slovensky', value: 'sk', imgSrc: './assets/icons/slovakia.png' },
-    { nameShort: 'ENG', nameLong: 'English', value: 'en', imgSrc: './assets/icons/united-kingdom.png' }
+    { name: 'SK', value: 'sk', imgSrc: './assets/icons/slovakia.png' },
+    { name: 'ENG', value: 'en', imgSrc: './assets/icons/united-kingdom.png' }
   ];
 
   constructor(private router: Router,
