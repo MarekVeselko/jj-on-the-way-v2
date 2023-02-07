@@ -29,30 +29,7 @@
 
 <div class="homepage-articles">
   <h1>{{'jj.newestArticles' | translate }}</h1>
-  <div *ngIf="articles && articles.length > 0" class="articles">
-    <carousel [cellWidth]="'100%'" [height]="screenWidth > 1200 ? 250 : 650" [cellsToShow]="articlesPerPage"
-      [dots]="true" [arrowsOutside]="screenWidth > 800" [arrowsTheme]=" screenWidth > 800 ? 'dark' : 'light'"
-      [objectFit]="'contain'">
-      <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell"
-        [routerLink]="['../blog/detail', article.id]">
-        <img class="article-preview-image"
-          src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="img">
-        <div class="article-box">
-          <div class="article-title">
-            <div class="article-title__text">{{article.title}}</div>
-            <hr>
-          </div>
-          <div class="article-text">
-            <p *ngIf="screenWidth >= 1200" [innerHtml]="truncate(article.perex, 150, '...')"></p>
-            <p *ngIf="screenWidth < 1200" [innerHtml]="truncate(article.perex, 270, '...')"></p>
-          </div>
-        </div>
-      </div>
-    </carousel>
-  </div>
-  <div class="no-articles" style="display: flex; justify-content: center;" *ngIf="articles?.length == 0">
-    {{'jj.commingSoon' | translate }}
-  </div>
+  <jj-carousel [articles]="articles"></jj-carousel>
 </div>
 
 <div class="instagram">

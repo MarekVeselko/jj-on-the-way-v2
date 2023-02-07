@@ -46,6 +46,7 @@ import { EditMapComponent } from './Admin/edit-map/edit-map.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TooltipDirective } from './shared/directives/tooltip.directive';
+import { CarouselComponent } from './Home/carousel/carousel.component';
 
 
 @NgModule({
@@ -54,6 +55,7 @@ import { TooltipDirective } from './shared/directives/tooltip.directive';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    CarouselComponent,
     TitlePhotoComponent,
     AdminComponent,
     BlogComponent,

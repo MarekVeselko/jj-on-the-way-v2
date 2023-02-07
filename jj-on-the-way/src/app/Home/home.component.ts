@@ -16,10 +16,8 @@ import { MapService } from '../shared/services/map.service';
 export class HomeComponent implements OnInit {
   @ViewChild('image') image!: ElementRef;
   articles!: Article[];
-  public screenWidth!: number;
   script: any;
   pins!: { x: string, y: string, country: string }[];
-  articlesPerPage = 3;
 
   constructor(private articleService: ArticlesService,
     private mapService: MapService,
@@ -37,8 +35,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.screenWidth = window.innerWidth;
-    this.getNumberOfArticlesPerPage();
     this.getItems();
     this.mapService.getMap().subscribe(response => {
       this.pins = response[0].pins;
@@ -119,24 +115,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  getImageId(url: string) {
-    if (!url) return;
-    return this.articleService.getImageId(url);
-  }
-
   truncate(str: string, max: number, suffix: string) {
     return str.length < max ? str : `${str.substr(0, str.substr(0, max - suffix.length).lastIndexOf(' '))}${suffix}`;
   }
 
-  @HostListener('window:resize', ['$event'])
-  onWindowResize() {
-    this.screenWidth = window.innerWidth;
-    this.getNumberOfArticlesPerPage();
-  }
-
-  private getNumberOfArticlesPerPage(): void {
-    if (this.screenWidth > 1000) this.articlesPerPage = 3;
-    if (this.screenWidth > 500 && this.screenWidth <= 1000) this.articlesPerPage = 2;
-    if (this.screenWidth < 500) this.articlesPerPage = 1;
-  }
 }

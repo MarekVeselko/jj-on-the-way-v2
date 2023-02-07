@@ -75,71 +75,10 @@ h1 {
   max-width: 100%;
   padding: 40px 0 0;
 
-  .articles {
-    padding: 20px 0;
-    .custom-carousel-cell {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      height: auto !important;
-      justify-content: space-between;
-      align-items: center;
 
-
-      &:hover img {
-        filter: blur(4px) brightness(80%);
-      }
-
-      .article-preview-image {
-        height: 250px;
-        object-fit: fill;
-      }
-
-      .article-box {
-        color: #fff;
-        font-family: $font-normal;
-        opacity: 0;
-        visibility: hidden;
-        width: 80%;
-        height: 250px;
-        position: relative;
-
-        .article-title {
-          text-align: center;
-          font-size: 16px;
-          font-weight: 600;
-          width: 100%;
-          text-align: center;
-
-
-          &__text {
-            max-width: 95%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-          }
-          hr {
-            border: none;
-            border-bottom: 2px solid #fff;
-          }
-        }
-
-
-      }
-
-      &:hover .article-box {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(-200px);
-        transition: all 0.4s;
-      }
-    }
-  }
 }
 
-.carousel-arrow {
-  margin-top: -80px !important;
-}
+
 
 
 
@@ -159,43 +98,6 @@ h1 {
     }
   }
 
-  .articles {
-    .custom-carousel-cell {
-      border: 1px solid $clr-green-primary;
-    }
-    .custom-carousel-cell {
-      &:hover img {
-        filter: none !important;
-      }
-
-
-      .article-preview-image {
-        height: 250px !important;
-      }
-      .article-box {
-        color: #000 !important;
-        font-family: $font-normal;
-        opacity: 1 !important;
-        visibility: visible !important;
-        width: 80%;
-        position: relative;
-        margin-top: 20px;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .article-title__text {
-        color: $clr-green-primary;
-      }
-
-      &:hover .article-box {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0px) !important;
-        transition: none;
-      }
-    }
-  }
 
   .homepage-map {
     margin-top: 40px;
@@ -236,18 +138,7 @@ h1 {
     }
   }
 
-  .articles {
-    .custom-carousel-cell {
-      border-top: none;
-      border-left: none;
-      border-right: none;
 
-    }
-
-    .article-title__text {
-      height: auto !important;
-    }
-  }
 }
 
 @media only screen and (max-width: 600px) {
