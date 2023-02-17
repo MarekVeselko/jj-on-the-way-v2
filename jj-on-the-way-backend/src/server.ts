@@ -3,6 +3,7 @@ dotenv.config();
 
 import path from 'path';
 import express from "express";
+import enforce from 'express-sslify';
 import cors from "cors";
 import articleRouter from './routers/articles.router';
 import userRouter from './routers/user.router';
@@ -18,6 +19,8 @@ app.use(cors({
     credentials: true,
     origin: ["http://localhost:4200"]
 }));
+
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 app.use("/api/articles", articleRouter);
 app.use("/api/users", userRouter);
