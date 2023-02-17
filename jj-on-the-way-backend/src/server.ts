@@ -22,8 +22,9 @@ app.use(cors({
     origin: ["http://localhost:4200"]
 }));
 
-app.use(enforce.HTTPS({ trustProtoHeader: true }));
-
+if (app.get("env") === "production") {
+    app.use(enforce.HTTPS({ trustProtoHeader: true }));
+}
 app.use("/api/articles", articleRouter);
 app.use("/api/users", userRouter);
 app.use("/api/email", emailRouter);
