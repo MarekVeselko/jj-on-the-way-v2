@@ -3,7 +3,9 @@ dotenv.config();
 
 import path from 'path';
 import express from "express";
-import enforce from 'express-sslify';
+
+const enforce = require('express-sslify');
+
 import cors from "cors";
 import articleRouter from './routers/articles.router';
 import userRouter from './routers/user.router';
