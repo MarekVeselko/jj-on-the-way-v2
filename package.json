@@ -1,6 +1,9 @@
 {
     "name": "jj-on-the-way",
     "version": "1.0.0",
+    "engines": {
+        "node": "16.17.0"
+      },
     "scripts": { 
         "start": "cd jj-on-the-way-backend/built && node server.js",
         "prebuild": "cd jj-on-the-way-backend && npm run build",
