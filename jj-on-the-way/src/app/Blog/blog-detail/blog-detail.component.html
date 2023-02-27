@@ -1,13 +1,13 @@
 <div class="blog-detail">
   <button (click)="location.back()" class="jj-back-button">{{'jj.back' | translate }}</button>
     <h1 *ngIf="article?.title">{{article.title}}</h1>
-  <div class="perex mar-top-80">
+  <div class="perex mar-top-responsive">
     <!-- <img class='title-photo' *ngIf="article?.titleImage"
       src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt='img' /> -->
     <p *ngIf="article?.perex" class="pre-element perex__text" [innerHtml]="article.perex"></p>
   </div>
 
-  <div *ngFor="let text of article?.text; let i = index;" class="text-block mar-top-80">
+  <div *ngFor="let text of article?.text; let i = index;" class="text-block mar-top-responsive">
     <img class="img-left" *ngIf="(text.img && text.img !== '') && i%2 !=0 "
       src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(text.img) }}" alt="photo">
     <p class="pre-element" *ngIf="text.text && text.text !== ''" [innerHtml]="text.text"></p>
@@ -17,7 +17,7 @@
 
 
 
-  <div *ngIf="showGallery" class="gallery mar-top-80">
+  <div *ngIf="showGallery" class="gallery mar-top-responsive">
     <div class="gallery__item" *ngFor="let photo of article?.gallery; let i = index">
       <img (click)="openModal(photo)" class="gallery__item--photo" *ngIf="photo"
         src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(photo) }}" alt='fadas' />

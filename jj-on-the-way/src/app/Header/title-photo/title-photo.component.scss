@@ -16,3 +16,10 @@
    margin-top: 60px;
   }
 }
+
+
+@media only screen and (max-width: 600px) {
+  .title-photo {
+   height: 20vh;
+  }
+}

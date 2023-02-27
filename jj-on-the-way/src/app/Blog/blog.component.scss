@@ -97,33 +97,6 @@
         display: flex;
         flex-direction: column;
 
-        // .date-box {
-        //     position: absolute;
-        //     top: 50px;
-        //     right: 3%;
-        //     border-radius: 10px;
-        //     width: 100px;
-
-        //     &-month {
-        //         font-size: 15px;
-        //         text-align: center;
-        //         color: #116f60;
-        //         margin: 0;
-        //         line-height: 0px;
-        //     }
-
-        //     &-day {
-        //         font-size: 30px;
-        //         font-weight: 600;
-        //         color: $clr-green-primary;
-        //         padding: 5px 15px;
-        //         text-align: center;
-        //     }
-
-
-        // }
-
-
         .preview-text {
           margin-top: 25px;
           margin-bottom: 0;
@@ -142,6 +115,10 @@
   .blog-paginator {
     background-color: transparent;
     margin-top: 40px;
+  }
+
+  .mar-top-mini-0 {
+    margin-top: auto;
   }
 }
 
@@ -178,7 +155,7 @@
 
       .img-box {
         max-width: none;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
         width: 100%;
 
         img {
@@ -194,6 +171,31 @@
           bottom: 10px;
         }
       }
+
+    }
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .blog {
+    .article-preview {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+
+      .content-box {
+        align-self: center;
+      }
+
+      .read-more-button {
+        text-align: center;
+        margin-top: 10px;
+      }
+    }
+
+    .mar-top-mini-0 {
+      margin-top: 0 !important;
     }
   }
 }
