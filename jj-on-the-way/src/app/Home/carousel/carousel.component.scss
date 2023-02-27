@@ -75,10 +75,6 @@
 @media only screen and (max-width: 1200px) {
   .articles {
     .custom-carousel-cell {
-      border: 1px solid $clr-green-primary;
-    }
-
-    .custom-carousel-cell {
       &:hover img {
         filter: none !important;
       }
@@ -115,7 +111,9 @@
 }
 
 @media only screen and (max-width: 800px) {
-
+  .carousel-arrow {
+    display: none !important;
+  }
   .articles {
     .custom-carousel-cell {
       border-top: none;
