@@ -100,11 +100,15 @@ h1 {
 
 
   .homepage-map {
-    margin-top: 40px;
+    margin-top: 0px;
   }
 }
 
 @media only screen and (max-width: 800px) {
+  h1 {
+    padding: 20px 0;
+    text-align: center;
+  }
   .homepage-hello {
     display: flex;
     justify-content: flex-start;
