@@ -28,6 +28,7 @@ export class HeaderComponent {
 
   onLangChange(lang: string) {
     this.translate.use(lang);
+    this.mobileMenuVisible = false;
     if (this.router.url.startsWith('/blog/detail/')) {
       setTimeout(() => {
         this.router.navigate(['./blog']);
