@@ -64,6 +64,21 @@ body {
   font-family: Arial, Helvetica, sans-serif !important;
 }
 
+.ql-align-center {
+  text-align: center !important;
+}
+
+.ql-align-right {
+  text-align: right !important;
+}
+
+.ql-align-left {
+  text-align: left !important;
+}
+
+.ql-align-justify {
+  text-align: justify !important;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
@@ -90,6 +105,14 @@ h1 {
   color: $clr-brown-primary;
   font-size: 60px;
   letter-spacing: 0.04em;
+}
+
+.article-h1 {
+  font-family: $font-normal;
+  color: $clr-brown-primary;
+  font-size: 35px;
+  margin: 0;
+  font-weight: 600;
 }
 
 h2 {
@@ -129,6 +152,10 @@ body {
   h1 {
     font-size: 55px;
   }
+
+  .article-h1 {
+    font-size: 30px;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -150,7 +177,7 @@ body {
 
 
 @media only screen and (max-width: 600px) {
-  h1 {
+  h1,.article-h1 {
     text-align: center;
   }
 }
@@ -159,6 +186,10 @@ body {
 @media only screen and (max-width: 300px) {
   h1 {
     font-size: 30px;
+  }
+
+  .article-h1 {
+    font-size: 25px;
   }
 
   h2 {
