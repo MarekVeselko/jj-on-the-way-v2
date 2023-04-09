@@ -50,7 +50,7 @@
                   <p class="date-box-day">{{article.dateCreated | date: 'd'}}</p>
                 </div> -->
 
-            <p class="preview-text" [innerHtml]="truncate(article.perex, 200, '...')"></p>
+            <p class="preview-text" [innerHtml]="truncate(article.perex, 400, '...')"></p>
           </div>
           <button class="read-more-button" [routerLink]="['detail', article.id]">{{'jj.readMore' | translate}}</button>
         </div>
