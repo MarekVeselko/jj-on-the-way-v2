@@ -21,7 +21,7 @@
   <div *ngIf="showGallery" class="gallery mar-top-responsive">
     <div class="gallery__item" *ngFor="let photo of article?.gallery; let i = index">
       <img (click)="openModal(photo)" class="gallery__item--photo" *ngIf="photo"
-        src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(photo) }}" alt='fadas' />
+        [src]="'https://drive.google.com/uc?export=view&id=' + getImageId(photo)" alt='fadas' />
     </div>
   </div>
 

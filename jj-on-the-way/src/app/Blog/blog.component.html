@@ -40,7 +40,7 @@
       <div class="article-preview">
         <div class="img-box">
           <img *ngIf="article?.titleImage"
-            src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="image">
+            [src]="'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage)" alt="image">
         </div>
         <div class="content-box">
           <div class="text-box">

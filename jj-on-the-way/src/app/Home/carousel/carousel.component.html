@@ -5,7 +5,7 @@
     <div *ngFor="let article of articles" class="carousel-cell custom-carousel-cell"
       [routerLink]="['../blog/detail', article.id]">
       <img class="article-preview-image"
-        src="{{'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage) }}" alt="img">
+        [src]="'https://drive.google.com/uc?export=view&id=' + getImageId(article.titleImage)" alt="img">
       <div class="article-box">
         <div class="article-title">
           <div class="article-title__text">{{article.title}}</div>
